@@ -254,6 +254,7 @@ enum A11yIdentifiers {
     struct SettingsScreen {
         let done = "settings-done"
         let account = "settings-account"
+        let addAccount = "settings-add_account"
         let secureBackup = "settings-secure_backup"
         let notifications = "settings-notifications"
         let analytics = "settings-analytics"
@@ -346,10 +347,6 @@ enum A11yIdentifiers {
     
     struct SpaceScreen {
         let moreMenu = "space_screen-more_menu"
-        let createRoom = "space_screen-create_room"
-        let addExistingRooms = "space_screen-add_existing_rooms"
-        let viewMembers = "space_screen-view_members"
-        let settings = "space_screen-settings"
     }
     
     struct SpaceAddRoomsScreen {

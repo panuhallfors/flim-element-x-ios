@@ -59,13 +59,15 @@ class RoomDetailsScreenViewModel: RoomDetailsScreenViewModelType, RoomDetailsScr
         
         let topic = attributedStringBuilder.fromPlain(roomProxy.infoPublisher.value.topic)
         
-        let viewState = RoomDetailsScreenViewState(details: roomProxy.details,
+        let viewState = RoomDetailsScreenViewState(appHooks: appHooks,
+                                                   details: roomProxy.details,
                                                    isEncrypted: roomProxy.infoPublisher.value.isEncrypted,
                                                    isDirect: roomProxy.infoPublisher.value.isDirect,
                                                    topic: topic,
                                                    topicSummary: topic?.unattributedStringByReplacingNewlinesWithSpaces(),
                                                    joinedMembersCount: roomProxy.infoPublisher.value.joinedMembersCount,
                                                    notificationSettingsState: .loading,
+                                                   isNativeCallingEnabled: userSession.userSettings.app.nativeCallEnabled,
                                                    bindings: .init())
         super.init(initialViewState: appHooks.roomDetailsScreenHook.update(viewState),
                    mediaProvider: userSession.mediaProvider)

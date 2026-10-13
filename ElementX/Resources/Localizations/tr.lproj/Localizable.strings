@@ -86,6 +86,7 @@
 "action_choose_file" = "Choose file";
 "action_choose_photo" = "Fotoğraf seç";
 "action_clear" = "Temizle";
+"action_clear_all" = "Clear all";
 "action_close" = "Kapat";
 "action_complete_verification" = "Doğrulamayı tamamlayın";
 "action_confirm" = "Onayla";
@@ -96,6 +97,7 @@
 "action_copy_link" = "Bağlantıyı kopyala";
 "action_copy_link_to_message" = "Mesaj bağlantısını kopyala";
 "action_copy_text" = "Metni kopyala";
+"action_copy_to_clipboard" = "Copy to clipboard";
 "action_create" = "Oluştur";
 "action_create_room" = "Bir oda oluştur";
 "action_create_space" = "Create space";
@@ -174,7 +176,6 @@
 "action_retry_decryption" = "Şifre çözmeyi tekrar deneyin";
 "action_save" = "Kaydet";
 "action_search" = "Ara";
-"action_select" = "Select";
 "action_select_all" = "Select all";
 "action_send" = "Gönder";
 "action_send_edited_message" = "Send edited message";
@@ -219,6 +220,7 @@
 "call_invalid_audio_device_bluetooth_devices_disabled" = "Element Araması, bu Android sürümünde Bluetooth ses cihazlarını desteklemiyor. Lütfen farklı bir ses cihazı seçin.";
 "common_about" = "Hakkında";
 "common_acceptable_use_policy" = "Kabul edilebilir kullanım politikası";
+"common_account_settings" = "Account settings";
 "common_add_account" = "Hesap ekle";
 "common_add_another_account" = "Başka bir hesap ekle";
 "common_adding_caption" = "Açıklama ekleme";
@@ -227,6 +229,7 @@
 "common_analytics" = "Analizler";
 "common_android_shortcuts_remove_reason_left_room" = "Odadan ayrıldın.";
 "common_android_shortcuts_remove_reason_session_logged_out" = "You were logged out of the session";
+"common_app_settings" = "App settings";
 "common_appearance" = "Görünüm";
 "common_audio" = "Ses";
 "common_beta" = "Beta";
@@ -237,6 +240,8 @@
 "common_call_started" = "Çağrı başladı";
 "common_call_you_declined" = "You declined a call";
 "common_chat_backup" = "Sohbet yedekleme";
+"common_chats" = "Chats";
+"common_code_block" = "Code block";
 "common_copied_to_clipboard" = "Panoya kopyalandı";
 "common_copyright" = "Telif Hakkı";
 "common_creating_room" = "Oda yaratmak...";
@@ -274,10 +279,12 @@
 "common_file_deleted" = "Dosya silindi";
 "common_file_saved" = "Dosya kaydedildi";
 "common_forward_message" = "Mesajı ilet";
+"common_forward_to" = "Forward to";
 "common_frequently_used" = "Sık kullanılanlar";
 "common_gallery" = "Gallery";
 "common_gif" = "GIF";
 "common_group_call_in_progress" = "Group call in progress";
+"common_header_rooms" = "Rooms";
 "common_image" = "Resim";
 "common_in_reply_to" = "Cevap olarak %1$@";
 "common_invite_unknown_profile" = "Bu Matrix Kimliği bulunamıyor, bu nedenle davet alınmayabilir.";
@@ -290,16 +297,20 @@
 "common_live_location_ended" = "Live location ended";
 "common_loading" = "Yükleniyor...";
 "common_loading_more" = "Daha fazla yükleniyor...";
+"common_location_sharing" = "Location sharing";
+"common_media_upload_quality" = "Media upload quality";
 "common_message" = "Mesaj";
 "common_message_actions" = "Mesaj eylemleri";
 "common_message_failed_to_send" = "Message failed to send";
 "common_message_layout" = "Mesaj düzeni";
 "common_message_removed" = "Mesaj kaldırıldı";
+"common_moderation_and_safety" = "Moderation & safety";
 "common_modern" = "Modern";
 "common_mute" = "Sessiz";
 "common_name" = "Name";
 "common_name_and_id" = "%1$@ (%2$@)";
 "common_no_results" = "Sonuç yok";
+"common_no_results_for" = "There are no results for “%1$@”. Try a new search term.";
 "common_no_room_name" = "Oda adı yok";
 "common_no_space_name" = "Alan adı yok";
 "common_not_encrypted" = "Şifrelenmemiş";
@@ -338,6 +349,7 @@
 "common_replying_to" = "Cevaplamak için %1$@";
 "common_report_a_problem" = "Sorun bildir";
 "common_report_submitted" = "Rapor gönderildi";
+"common_results_for" = "Results for “%1$@”";
 "common_rich_text_editor" = "Zengin metin editörü";
 "common_role" = "Role";
 "common_room" = "Oda";
@@ -365,6 +377,7 @@
 "common_shared_live_location" = "Shared live location";
 "common_shared_location" = "Paylaşılan konum";
 "common_shared_space" = "Shared space";
+"common_signed_in" = "Signed in";
 "common_signing_out" = "Oturumu kapatma";
 "common_something_went_wrong" = "Bir şeyler ters gitti";
 "common_something_went_wrong_message" = "Bir sorunla karşılaştık. Lütfen tekrar deneyin.";
@@ -376,6 +389,7 @@
 "common_success" = "Başarılı";
 "common_suggested" = "Suggested";
 "common_suggestions" = "Öneriler";
+"common_switch_accounts" = "Switch accounts";
 "common_syncing" = "Senkronizasyon";
 "common_text" = "Metin";
 "common_third_party_notices" = "Üçüncü taraf bildirimleri";
@@ -416,6 +430,7 @@
 "common_waiting_live_location" = "Waiting for live location…";
 "common_world_readable_history" = "Anyone can see history";
 "common_you" = "Sen";
+"common_your_account" = "Your account";
 "confirm_recovery_key_banner_message" = "Anahtar depolama alanınıza ve mesaj geçmişinize erişimi sürdürmek için kurtarma anahtarınızı onaylayın.";
 "confirm_recovery_key_banner_primary_button_title" = "Kurtarma anahtarınızı girin";
 "confirm_recovery_key_banner_secondary_button_title" = "Kurtarma anahtarınızı mı unuttunuz?";
@@ -1058,6 +1073,12 @@
 "screen_missing_key_backup_step_4" = "Follow the instructions to enable your key storage";
 "screen_missing_key_backup_step_5" = "Come back to %1$@";
 "screen_missing_key_backup_title" = "Enable your key storage before proceeding to %1$@";
+"screen_moderation_and_safety_invites_heading" = "Invites";
+"screen_moderation_and_safety_other_users_heading" = "Other users";
+"screen_moderation_and_safety_share_presence_heading" = "Your appearance";
+"screen_multi_account_announcement_action" = "Add account";
+"screen_multi_account_announcement_description" = "Go to %1$@ to sign into another account. Then you can easily switch between them.";
+"screen_multi_account_announcement_title" = "You can now add multiple accounts";
 "screen_notification_optin_subtitle" = "Ayarlarınızı daha sonra değiştirebilirsiniz.";
 "screen_notification_optin_title" = "Bildirimlere izin verin ve hiçbir mesajı kaçırmayın";
 "screen_notification_settings_additional_settings_section_title" = "Ek ayarlar";
@@ -1086,6 +1107,8 @@
 "screen_notification_settings_mode_mentions" = "Bahsetmeler";
 "screen_notification_settings_notification_section_title" = "Bana bildir";
 "screen_notification_settings_room_mention_label" = "Bana @room'da bildir";
+"screen_notification_settings_show_all_activity_subtitle" = "Dots or number of unread messages";
+"screen_notification_settings_show_all_activity_title" = "Show all activity in the room list";
 "screen_notification_settings_sound_custom_fallback" = "Custom";
 "screen_notification_settings_sound_custom_sound_button_title" = "Custom sound...";
 "screen_notification_settings_sound_delete_sound_error_title" = "Error deleting file";
@@ -1146,6 +1169,14 @@
 "screen_polls_history_filter_ongoing" = "Devam ediyor";
 "screen_polls_history_filter_past" = "Geçmiş";
 "screen_polls_history_title" = "Anketler";
+"screen_ptt_settings_battery_optimization" = "Ignore battery optimisation";
+"screen_ptt_settings_battery_optimization_description" = "Stay active in background";
+"screen_ptt_settings_covert_mode" = "Covert mode";
+"screen_ptt_settings_covert_mode_description" = "Mute all channels";
+"screen_ptt_settings_lock_screen" = "Show on lock screen";
+"screen_ptt_settings_lock_screen_description" = "Access from the lock screen";
+"screen_ptt_settings_system_overlay" = "Enable system overlay";
+"screen_ptt_settings_system_overlay_description" = "Access a floating action button";
 "screen_push_history_title" = "Push history";
 "screen_qr_code_login_connecting_subtitle" = "Güvenli bir bağlantı kuruluyor";
 "screen_qr_code_login_connection_note_secure_state_description" = "Yeni cihaza güvenli bir bağlantı kurulamadı. Mevcut cihazlarınız hala güvende ve onlar için endişelenmenize gerek yok.";
@@ -1290,11 +1321,14 @@
 "screen_room_change_role_section_users" = "Üyeler";
 "screen_room_change_role_unsaved_changes_description" = "Kaydedilmemiş değişiklikleriniz var.";
 "screen_room_change_role_unsaved_changes_title" = "Değişiklikleri Kaydet?";
-"screen_room_confirm_removal_message" = "Are you sure you wish to remove this message?";
 "screen_room_confirm_removal_reason_label" = "Reason (optional)";
-"screen_room_confirm_removal_reason_placeholder" = "Enter…";
-"screen_room_confirm_removal_title" = "Confirm removal";
+"screen_room_confirm_removal_reason_placeholder" = "Enter reason…";
+"screen_room_confirm_removal_reason_supporting_text" = "(Optional)";
+"screen_room_confirm_removal_title" = "Remove message?";
 "screen_room_details_add_topic_title" = "Konu ekle";
+"screen_room_details_audio_push_to_talk" = "Push to talk";
+"screen_room_details_audio_title" = "Room Audio";
+"screen_room_details_audio_video_calls" = "Video calls";
 "screen_room_details_badge_encrypted" = "Şifrelenmiş";
 "screen_room_details_badge_not_encrypted" = "Şifrelenmemiş";
 "screen_room_details_badge_public" = "Herkese açık oda";
@@ -1320,6 +1354,9 @@
 "screen_room_details_profile_row_title" = "Profil";
 "screen_room_details_requests_to_join_title" = "Katılma istekleri";
 "screen_room_details_roles_and_permissions" = "Roller ve izinler";
+"screen_room_details_room_audio_ptt" = "Push to talk";
+"screen_room_details_room_audio_title" = "Room Audio";
+"screen_room_details_room_audio_video_calls" = "Video calls";
 "screen_room_details_room_name_label" = "Name";
 "screen_room_details_security_and_privacy_title" = "Güvenlik ve gizlilik";
 "screen_room_details_security_title" = "Güvenlik";
@@ -1406,6 +1443,7 @@
 "screen_room_roles_and_permissions_room_details" = "Oda bilgileri";
 "screen_room_roles_and_permissions_space_details" = "Alan ayrıntıları";
 "screen_room_roles_and_permissions_title" = "Roller ve izinler";
+"screen_room_select_error_cannot_load_rooms" = "The room list associated with this account cannot be loaded.";
 "screen_room_single_knock_request_accept_button_title" = "Kabul et";
 "screen_room_single_knock_request_title" = "%1$@ bu odaya katılmak istiyor";
 "screen_room_single_knock_request_view_button_title" = "View";
@@ -1536,6 +1574,7 @@
 "screen_session_verification_use_another_device_title" = "Uygulamayı doğrulanmış başka bir cihazda açın";
 "screen_session_verification_user_initiator_subtitle" = "Daha fazla güvenlik için, cihazlarınızdaki bir dizi emojiyi karşılaştırarak bu kullanıcıyı doğrulayın. Bunu, iletişim kurmak için güvenilir bir yol kullanarak yapın.";
 "screen_session_verification_user_initiator_title" = "Bu kullanıcıyı doğrula?";
+"screen_session_verification_user_requesting_verification" = "User requesting verification:";
 "screen_session_verification_user_responder_subtitle" = "Ekstra güvenlik için, başka bir kullanıcı kimliğinizi doğrulamak istiyor. Karşılaştırmanız için size bir dizi emoji gösterilecektir.";
 "screen_session_verification_waiting_another_device_subtitle" = "Diğer cihazda bir açılır pencere görmelisiniz. Doğrulamayı şimdi oradan başlatın.";
 "screen_session_verification_waiting_another_device_title" = "Diğer cihazda doğrulamayı başlat";
@@ -1544,6 +1583,7 @@
 "screen_session_verification_waiting_subtitle" = "Kabul edildikten sonra doğrulama işlemine devam edebileceksiniz.";
 "screen_session_verification_waiting_to_accept_subtitle" = "Devam etmek için diğer oturumunuzda doğrulama işlemini başlatma isteğini kabul edin.";
 "screen_session_verification_waiting_to_accept_title" = "İsteğin kabul edilmesi bekleniyor";
+"screen_settings_add_account" = "Add account";
 "screen_settings_user_status_away" = "Away";
 "screen_settings_user_status_be_right_back" = "Be right back";
 "screen_settings_user_status_custom" = "Custom…";
@@ -1566,6 +1606,7 @@
 "screen_signed_out_reason_2" = "Oturumu başka bir oturumdan sildiniz";
 "screen_signed_out_reason_3" = "Sunucunuzun yöneticisi erişiminizi geçersiz kıldı";
 "screen_signed_out_subtitle" = "Aşağıda listelenen nedenlerden biri nedeniyle oturumunuz kapatılmış olabilir. %@ kullanmaya devam etmek için lütfen tekrar oturum açın.";
+"screen_signed_out_subtitle_v2" = "This device was removed for one of the reasons listed below. Please sign in again to connect this device to your account.";
 "screen_signed_out_title" = "Oturumunuz kapatıldı";
 "screen_signout_confirmation_dialog_content" = "Çıkış yapmak istediğinize emin misiniz?";
 "screen_signout_confirmation_dialog_submit" = "Oturumu kapat";

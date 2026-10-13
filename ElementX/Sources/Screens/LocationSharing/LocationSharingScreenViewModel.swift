@@ -17,7 +17,7 @@ class LocationSharingScreenViewModel: LocationSharingScreenViewModelType, Locati
     private let roomProxy: JoinedRoomProxyProtocol
     private let timelineController: TimelineControllerProtocol
     private let liveLocationManager: LiveLocationManagerProtocol
-    private let appSettings: AppSettings
+    private let userSettings: UserSettings
     private let analytics: AnalyticsServiceProtocol
     private let userIndicatorController: UserIndicatorControllerProtocol
     private let notificationCenter: NotificationCenter
@@ -36,16 +36,14 @@ class LocationSharingScreenViewModel: LocationSharingScreenViewModelType, Locati
          mapURLBuilder: MapTilerURLBuilderProtocol,
          roomProxy: JoinedRoomProxyProtocol,
          timelineController: TimelineControllerProtocol,
-         liveLocationManager: LiveLocationManagerProtocol,
-         appSettings: AppSettings,
+         userSession: UserSessionProtocol,
          analytics: AnalyticsServiceProtocol,
          userIndicatorController: UserIndicatorControllerProtocol,
-         mediaProvider: MediaProviderProtocol,
          notificationCenter: NotificationCenter = .default) {
         self.roomProxy = roomProxy
         self.timelineController = timelineController
-        self.liveLocationManager = liveLocationManager
-        self.appSettings = appSettings
+        liveLocationManager = userSession.liveLocationManager
+        userSettings = userSession.userSettings
         self.analytics = analytics
         self.userIndicatorController = userIndicatorController
         self.notificationCenter = notificationCenter
@@ -53,7 +51,7 @@ class LocationSharingScreenViewModel: LocationSharingScreenViewModelType, Locati
         super.init(initialViewState: .init(interactionMode: interactionMode,
                                            mapURLBuilder: mapURLBuilder,
                                            ownUserID: roomProxy.ownUserID),
-                   mediaProvider: mediaProvider)
+                   mediaProvider: userSession.mediaProvider)
         
         updateUserProfiles(members: roomProxy.membersPublisher.value)
         setupSubscriptions()
@@ -173,7 +171,7 @@ class LocationSharingScreenViewModel: LocationSharingScreenViewModelType, Locati
         }
         .store(in: &cancellables)
         
-        appSettings.liveLocationSharingSessionsByRoomIDPublisher
+        userSettings.app.liveLocationSharingSessionsByRoomIDPublisher
             .map { [roomID = roomProxy.id] sessions in sessions[roomID] != nil }
             .removeDuplicates()
             .sink { [weak self] isSharingLiveLocationOnThisDevice in
@@ -261,14 +259,14 @@ class LocationSharingScreenViewModel: LocationSharingScreenViewModelType, Locati
     }
     
     private func showLiveLocationFlow() {
-        if appSettings.liveLocationDisclaimerDisplayed {
+        if userSettings.app.liveLocationDisclaimerDisplayed {
             showLiveLocationDurationPicker()
         } else {
             state.bindings.alertInfo = .init(alertID: .liveLocationDisclaimer,
                                              primaryButton: .init(title: L10n.actionDecline, role: .cancel, action: nil),
                                              secondaryButton: .init(title: L10n.actionAccept) { [weak self] in
                                                  guard let self else { return }
-                                                 appSettings.liveLocationDisclaimerDisplayed = true
+                                                 userSettings.app.liveLocationDisclaimerDisplayed = true
                                                  // Delay so SwiftUI finishes dismissing the current alert
                                                  // before presenting the next one.
                                                  DispatchQueue.main.async {
@@ -432,16 +430,14 @@ extension LocationSharingScreenViewModel {
         let roomProxy = JoinedRoomProxyMock(.init(members: .allMembers, ownUserID: RoomMemberProxyMock.mockMe.userID))
         roomProxy.makeLiveLocationServiceReturnValue = liveLocationServiceMock
         
-        let appSettings = AppSettings.volatile()
+        let userSession = UserSessionMock(.init())
         
         return LocationSharingScreenViewModel(interactionMode: interactionMode,
-                                              mapURLBuilder: appSettings.mapTilerConfiguration.publisher.value,
+                                              mapURLBuilder: userSession.userSettings.app.mapTilerConfiguration.publisher.value,
                                               roomProxy: roomProxy,
                                               timelineController: TimelineControllerMock(.init()),
-                                              liveLocationManager: LiveLocationManagerMock(),
-                                              appSettings: appSettings,
+                                              userSession: userSession,
                                               analytics: AnalyticsServiceMock(.init()),
-                                              userIndicatorController: UserIndicatorControllerMock(),
-                                              mediaProvider: MediaProviderMock(.init()))
+                                              userIndicatorController: UserIndicatorControllerMock())
     }
 }

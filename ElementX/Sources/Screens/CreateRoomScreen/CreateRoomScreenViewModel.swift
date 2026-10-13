@@ -33,9 +33,9 @@ class CreateRoomScreenViewModel: CreateRoomScreenViewModelType, CreateRoomScreen
          userSession: UserSessionProtocol,
          analytics: AnalyticsServiceProtocol,
          userIndicatorController: UserIndicatorControllerProtocol,
-         appSettings: AppSettings) {
+         appHooks: AppHooks) {
         self.userSession = userSession
-        mediaUploadingPreprocessor = MediaUploadingPreprocessor(appSettings: appSettings)
+        mediaUploadingPreprocessor = MediaUploadingPreprocessor(userSettings: userSession.userSettings)
         self.analytics = analytics
         self.userIndicatorController = userIndicatorController
         
@@ -59,14 +59,16 @@ class CreateRoomScreenViewModel: CreateRoomScreenViewModelType, CreateRoomScreen
                                                          selectedAccessType: selectedAccessType,
                                                          selectedSpace: selectedSpace)
         
-        super.init(initialViewState: CreateRoomScreenViewState(isSpace: isSpace,
-                                                               shouldShowCancelButton: shouldShowCancelButton,
-                                                               roomName: "",
-                                                               serverName: userSession.clientProxy.userIDServerName ?? "",
-                                                               isKnockingFeatureEnabled: appSettings.knockingEnabled,
-                                                               canSelectSpace: canSelectSpace,
-                                                               aliasLocalPart: roomAliasNameFromRoomDisplayName(roomName: ""),
-                                                               bindings: bindings),
+        let viewState = CreateRoomScreenViewState(isSpace: isSpace,
+                                                  shouldShowCancelButton: shouldShowCancelButton,
+                                                  roomName: "",
+                                                  serverName: userSession.clientProxy.userIDServerName ?? "",
+                                                  isKnockingFeatureEnabled: userSession.userSettings.app.knockingEnabled,
+                                                  canSelectSpace: canSelectSpace,
+                                                  aliasLocalPart: roomAliasNameFromRoomDisplayName(roomName: ""),
+                                                  bindings: bindings)
+        
+        super.init(initialViewState: appHooks.createRoomScreenHook.update(viewState, homeserver: userSession.clientProxy.homeserver),
                    mediaProvider: userSession.mediaProvider)
         
         setupBindings()

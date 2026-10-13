@@ -86,6 +86,7 @@
 "action_choose_file" = "Choose file";
 "action_choose_photo" = "Chọn ảnh";
 "action_clear" = "Xoá";
+"action_clear_all" = "Clear all";
 "action_close" = "Đóng";
 "action_complete_verification" = "Xác minh hoàn tất";
 "action_confirm" = "Xác nhận";
@@ -96,6 +97,7 @@
 "action_copy_link" = "Chép liên kết";
 "action_copy_link_to_message" = "Sao chép liên kết đến tin nhắn";
 "action_copy_text" = "Chép văn bản";
+"action_copy_to_clipboard" = "Copy to clipboard";
 "action_create" = "Tạo";
 "action_create_room" = "Tạo phòng";
 "action_create_space" = "Tạo không gian";
@@ -174,7 +176,6 @@
 "action_retry_decryption" = "Thử giải mã lại";
 "action_save" = "Lưu";
 "action_search" = "Tìm kiếm";
-"action_select" = "Select";
 "action_select_all" = "Chọn tất cả";
 "action_send" = "Gửi";
 "action_send_edited_message" = "Gửi tin nhắn đã chỉnh sửa";
@@ -219,6 +220,7 @@
 "call_invalid_audio_device_bluetooth_devices_disabled" = "Ứng dụng Element Call không hỗ trợ sử dụng thiết bị âm thanh Bluetooth trên phiên bản Android này. Vui lòng chọn thiết bị âm thanh khác.";
 "common_about" = "Giới thiệu";
 "common_acceptable_use_policy" = "Quy định sử dụng dịch vụ";
+"common_account_settings" = "Account settings";
 "common_add_account" = "Thêm tài khoản";
 "common_add_another_account" = "Thêm tài khoản khác";
 "common_adding_caption" = "Thêm chú thích";
@@ -227,6 +229,7 @@
 "common_analytics" = "Phân tích";
 "common_android_shortcuts_remove_reason_left_room" = "Bạn rời phòng";
 "common_android_shortcuts_remove_reason_session_logged_out" = "Bạn đã bị đăng xuất";
+"common_app_settings" = "App settings";
 "common_appearance" = "Giao diện";
 "common_audio" = "Âm thanh";
 "common_beta" = "Thử nghiệm";
@@ -237,6 +240,8 @@
 "common_call_started" = "Cuộc gọi bắt đầu";
 "common_call_you_declined" = "You declined a call";
 "common_chat_backup" = "Sao lưu cuộc trò chuyện";
+"common_chats" = "Chats";
+"common_code_block" = "Code block";
 "common_copied_to_clipboard" = "Đã sao chép";
 "common_copyright" = "Bản quyền";
 "common_creating_room" = "Đang tạo phòng...";
@@ -274,10 +279,12 @@
 "common_file_deleted" = "Tệp đã bị xóa";
 "common_file_saved" = "Tệp đã được lưu";
 "common_forward_message" = "Chuyển tiếp tin nhắn";
+"common_forward_to" = "Forward to";
 "common_frequently_used" = "Thường được sử dụng";
 "common_gallery" = "Gallery";
 "common_gif" = "Ảnh động";
 "common_group_call_in_progress" = "Group call in progress";
+"common_header_rooms" = "Rooms";
 "common_image" = "Ảnh";
 "common_in_reply_to" = "Trả lời %1$@";
 "common_invite_unknown_profile" = "Không tìm thấy Matrix ID này, nên lời mời có thể chưa được nhận.";
@@ -290,16 +297,20 @@
 "common_live_location_ended" = "Chia sẻ vị trí trực tiếp đã kết thúc";
 "common_loading" = "Đang tải";
 "common_loading_more" = "Đang tải thêm…";
+"common_location_sharing" = "Location sharing";
+"common_media_upload_quality" = "Media upload quality";
 "common_message" = "Tin nhắn";
 "common_message_actions" = "Thao tác tin nhắn";
 "common_message_failed_to_send" = "Không gửi được tin nhắn";
 "common_message_layout" = "Bố cục tin nhắn";
 "common_message_removed" = "Tin nhắn bị xoá";
+"common_moderation_and_safety" = "Moderation & safety";
 "common_modern" = "Hiện đại";
 "common_mute" = "Tắt tiếng";
 "common_name" = "Tên";
 "common_name_and_id" = "%1$@ (%2$@)";
 "common_no_results" = "Không có kết quả";
+"common_no_results_for" = "There are no results for “%1$@”. Try a new search term.";
 "common_no_room_name" = "Không có tên phòng";
 "common_no_space_name" = "Không có tên space";
 "common_not_encrypted" = "Không được mã hóa";
@@ -338,6 +349,7 @@
 "common_replying_to" = "Đang trả lời cho %1$@";
 "common_report_a_problem" = "Báo cáo sự cố";
 "common_report_submitted" = "Đã gửi báo cáo";
+"common_results_for" = "Results for “%1$@”";
 "common_rich_text_editor" = "Trình soạn thảo văn bản nâng cao";
 "common_role" = "Vai trò";
 "common_room" = "Phòng";
@@ -365,6 +377,7 @@
 "common_shared_live_location" = "Chia sẻ vị trí trực tiếp";
 "common_shared_location" = "Vị trí được chia sẻ";
 "common_shared_space" = "Không gian chung";
+"common_signed_in" = "Signed in";
 "common_signing_out" = "Đang gỡ thiết bị";
 "common_something_went_wrong" = "Đã xảy ra sự cố";
 "common_something_went_wrong_message" = "Đã xảy ra lỗi. Vui lòng thử lại.";
@@ -376,6 +389,7 @@
 "common_success" = "Thành công";
 "common_suggested" = "Gợi ý";
 "common_suggestions" = "Gợi ý";
+"common_switch_accounts" = "Switch accounts";
 "common_syncing" = "Đang đồng bộ";
 "common_text" = "Văn bản";
 "common_third_party_notices" = "Thông báo từ bên thứ ba";
@@ -416,6 +430,7 @@
 "common_waiting_live_location" = "Đang chờ vị trí trực tiếp…";
 "common_world_readable_history" = "Ai cũng có thể xem lịch sử";
 "common_you" = "Bạn";
+"common_your_account" = "Your account";
 "confirm_recovery_key_banner_message" = "Xác nhận khóa khôi phục để không bị mất quyền truy cập vào tin nhắn.";
 "confirm_recovery_key_banner_primary_button_title" = "Nhập khóa khôi phục của bạn.";
 "confirm_recovery_key_banner_secondary_button_title" = "Bạn quên khóa khôi phục?”";
@@ -619,8 +634,8 @@
 "screen_advanced_settings_share_presence_description" = "Nếu tắt, bạn sẽ không thể gửi hoặc nhận thông báo đã đọc và thông báo \"đang nhập...\".";
 "screen_advanced_settings_show_media_timeline_always_hide" = "Always hide";
 "screen_advanced_settings_show_media_timeline_always_show" = "Always show";
-"screen_advanced_settings_show_media_timeline_private_rooms" = "In private rooms";
-"screen_advanced_settings_show_media_timeline_subtitle" = "A hidden media can always be shown by tapping on it";
+"screen_advanced_settings_show_media_timeline_private_rooms" = "Show in private rooms";
+"screen_advanced_settings_show_media_timeline_subtitle" = "Hidden media can always be shown by tapping on it.";
 "screen_advanced_settings_show_media_timeline_title" = "Show media in timeline";
 "screen_advanced_settings_view_source_description" = "Bật tùy chọn xem nguồn tin nhắn trong dòng thời gian.";
 "screen_analytics_prompt_data_usage" = "Chúng tôi sẽ không ghi lại hoặc lập hồ sơ bất kỳ dữ liệu cá nhân nào.";
@@ -1058,6 +1073,12 @@
 "screen_missing_key_backup_step_4" = "Follow the instructions to enable your key storage";
 "screen_missing_key_backup_step_5" = "Come back to %1$@";
 "screen_missing_key_backup_title" = "Enable your key storage before proceeding to %1$@";
+"screen_moderation_and_safety_invites_heading" = "Invites";
+"screen_moderation_and_safety_other_users_heading" = "Other users";
+"screen_moderation_and_safety_share_presence_heading" = "Your appearance";
+"screen_multi_account_announcement_action" = "Add account";
+"screen_multi_account_announcement_description" = "Go to %1$@ to sign into another account. Then you can easily switch between them.";
+"screen_multi_account_announcement_title" = "You can now add multiple accounts";
 "screen_notification_optin_subtitle" = "Bạn có thể thay đổi cài đặt sau.";
 "screen_notification_optin_title" = "Cho phép thông báo để không bỏ lỡ bất kỳ tin nhắn nào";
 "screen_notification_settings_additional_settings_section_title" = "Cài đặt bổ sung";
@@ -1086,6 +1107,8 @@
 "screen_notification_settings_mode_mentions" = "Nhắc đến";
 "screen_notification_settings_notification_section_title" = "Thông báo cho tôi khi";
 "screen_notification_settings_room_mention_label" = "Thông báo cho tôi khi @room";
+"screen_notification_settings_show_all_activity_subtitle" = "Dots or number of unread messages";
+"screen_notification_settings_show_all_activity_title" = "Show all activity in the room list";
 "screen_notification_settings_sound_custom_fallback" = "Custom";
 "screen_notification_settings_sound_custom_sound_button_title" = "Custom sound...";
 "screen_notification_settings_sound_delete_sound_error_title" = "Error deleting file";
@@ -1146,6 +1169,14 @@
 "screen_polls_history_filter_ongoing" = "Đang diễn ra";
 "screen_polls_history_filter_past" = "Quá khứ";
 "screen_polls_history_title" = "Cuộc thăm dò ý kiến";
+"screen_ptt_settings_battery_optimization" = "Ignore battery optimisation";
+"screen_ptt_settings_battery_optimization_description" = "Stay active in background";
+"screen_ptt_settings_covert_mode" = "Covert mode";
+"screen_ptt_settings_covert_mode_description" = "Mute all channels";
+"screen_ptt_settings_lock_screen" = "Show on lock screen";
+"screen_ptt_settings_lock_screen_description" = "Access from the lock screen";
+"screen_ptt_settings_system_overlay" = "Enable system overlay";
+"screen_ptt_settings_system_overlay_description" = "Access a floating action button";
 "screen_push_history_title" = "Push history";
 "screen_qr_code_login_connecting_subtitle" = "Establishing a secure connection";
 "screen_qr_code_login_connection_note_secure_state_description" = "A secure connection could not be made to the new device. Your existing devices are still safe and you don't need to worry about them.";
@@ -1290,11 +1321,14 @@
 "screen_room_change_role_section_users" = "Thành viên";
 "screen_room_change_role_unsaved_changes_description" = "Bạn có thay đổi chưa được lưu.";
 "screen_room_change_role_unsaved_changes_title" = "Lưu thay đổi?";
-"screen_room_confirm_removal_message" = "Are you sure you wish to remove this message?";
 "screen_room_confirm_removal_reason_label" = "Reason (optional)";
-"screen_room_confirm_removal_reason_placeholder" = "Enter…";
-"screen_room_confirm_removal_title" = "Confirm removal";
+"screen_room_confirm_removal_reason_placeholder" = "Enter reason…";
+"screen_room_confirm_removal_reason_supporting_text" = "(Optional)";
+"screen_room_confirm_removal_title" = "Remove message?";
 "screen_room_details_add_topic_title" = "Thêm chủ đề";
+"screen_room_details_audio_push_to_talk" = "Push to talk";
+"screen_room_details_audio_title" = "Room Audio";
+"screen_room_details_audio_video_calls" = "Video calls";
 "screen_room_details_badge_encrypted" = "Encrypted";
 "screen_room_details_badge_not_encrypted" = "Not encrypted";
 "screen_room_details_badge_public" = "Phòng công cộng";
@@ -1320,6 +1354,9 @@
 "screen_room_details_profile_row_title" = "Profile";
 "screen_room_details_requests_to_join_title" = "Requests to join";
 "screen_room_details_roles_and_permissions" = "Vai trò và quyền hạn";
+"screen_room_details_room_audio_ptt" = "Push to talk";
+"screen_room_details_room_audio_title" = "Room Audio";
+"screen_room_details_room_audio_video_calls" = "Video calls";
 "screen_room_details_room_name_label" = "Tên";
 "screen_room_details_security_and_privacy_title" = "Security & privacy";
 "screen_room_details_security_title" = "Bảo mật";
@@ -1406,6 +1443,7 @@
 "screen_room_roles_and_permissions_room_details" = "Chi tiết phòng";
 "screen_room_roles_and_permissions_space_details" = "Space details";
 "screen_room_roles_and_permissions_title" = "Vai trò và quyền hạn";
+"screen_room_select_error_cannot_load_rooms" = "The room list associated with this account cannot be loaded.";
 "screen_room_single_knock_request_accept_button_title" = "Đồng ý";
 "screen_room_single_knock_request_title" = "%1$@ wants to join this room";
 "screen_room_single_knock_request_view_button_title" = "Xem";
@@ -1536,6 +1574,7 @@
 "screen_session_verification_use_another_device_title" = "Open the app on another verified device";
 "screen_session_verification_user_initiator_subtitle" = "For extra security, verify this user by comparing a set of emojis on your devices. Do this by using a trusted way to communicate.";
 "screen_session_verification_user_initiator_title" = "Verify this user?";
+"screen_session_verification_user_requesting_verification" = "User requesting verification:";
 "screen_session_verification_user_responder_subtitle" = "For extra security, another user wants to verify your digital identity. You’ll be shown a set of emojis to compare.";
 "screen_session_verification_waiting_another_device_subtitle" = "You should see a popup on the other device. Start the verification from there now.";
 "screen_session_verification_waiting_another_device_title" = "Start verification on the other device";
@@ -1544,6 +1583,7 @@
 "screen_session_verification_waiting_subtitle" = "Once accepted you’ll be able to continue with the verification.";
 "screen_session_verification_waiting_to_accept_subtitle" = "Hãy chấp nhận yêu cầu bắt đầu quá trình xác minh trong phiên làm việc khác của bạn để tiếp tục.";
 "screen_session_verification_waiting_to_accept_title" = "Đang chờ chấp nhận yêu cầu";
+"screen_settings_add_account" = "Add account";
 "screen_settings_user_status_away" = "Away";
 "screen_settings_user_status_be_right_back" = "Be right back";
 "screen_settings_user_status_custom" = "Custom…";
@@ -1566,6 +1606,7 @@
 "screen_signed_out_reason_2" = "Bạn đã xóa phiên đăng nhập này từ một phiên khác.";
 "screen_signed_out_reason_3" = "Quản trị viên của máy chủ đã thu hồi quyền truy cập của bạn.";
 "screen_signed_out_subtitle" = "Bạn có thể đã bị đăng xuất vì một trong những lý do được liệt kê bên dưới. Vui lòng đăng nhập lại để tiếp tục sử dụng %@ .";
+"screen_signed_out_subtitle_v2" = "This device was removed for one of the reasons listed below. Please sign in again to connect this device to your account.";
 "screen_signed_out_title" = "Bạn đã đăng xuất.";
 "screen_signout_confirmation_dialog_content" = "Bạn có chắc muốn gỡ thiết bị này không?";
 "screen_signout_confirmation_dialog_submit" = "Gỡ bỏ thiết bị này";

@@ -7,6 +7,7 @@
 //
 
 import Combine
+import ElementCall
 import Foundation
 import MatrixRustSDK
 
@@ -148,7 +149,7 @@ protocol ClientProxyProtocol: AnyObject {
     
     /// Used for listing rooms that shouldn't be affected by the main `roomSummaryProvider` filtering
     /// But can still be filtered by queries, since this may be shared across multiple views, remember to reset
-    /// The filtering state when you are done with it
+    /// The filtering state when you are done with it. Only lists joined rooms.
     var alternateRoomSummaryProvider: RoomSummaryProviderProtocol { get }
     
     /// Used for listing rooms, can't be filtered nor its state observed
@@ -171,6 +172,9 @@ protocol ClientProxyProtocol: AnyObject {
     var isReportRoomSupported: Bool { get async }
     var isLiveKitRTCSupported: Bool { get async }
     
+    /// Builds a Matrix transport for the call package, `nil` when not backed by a real SDK client.
+    func makeNativeCallTransport() -> ElementCallMatrixTransportProtocol?
+    
     var isLoginWithQRCodeSupported: Bool { get async }
     
     var maxMediaUploadSize: Result<UInt, ClientProxyError> { get async }
@@ -182,6 +186,12 @@ protocol ClientProxyProtocol: AnyObject {
     func resumeServices() async
     
     func pauseServices() async
+    
+    func startSearchBackfill(strategy: SearchBackfillStrategy)
+    
+    func stopSearchBackfill()
+    
+    var isSearchBackfillRunning: Bool { get }
     
     func expireSyncSessions() async
     
@@ -237,7 +247,7 @@ protocol ClientProxyProtocol: AnyObject {
     
     func linkNewDeviceService() -> LinkNewDeviceServiceProtocol
     
-    func deactivateAccount(password: String?, eraseData: Bool) async -> Result<Void, ClientProxyError>
+    func deactivateAccount(password: String, eraseData: Bool) async -> Result<Void, ClientProxyError>
     
     func logout() async
     
@@ -273,7 +283,9 @@ protocol ClientProxyProtocol: AnyObject {
     
     func trackRecentlyVisitedRoom(_ roomID: String) async -> Result<Void, ClientProxyError>
     
-    func recentlyVisitedRooms(filter: @Sendable (JoinedRoomProxyProtocol) -> Bool) async -> [JoinedRoomProxyProtocol]
+    /// The identifiers of the rooms the user visited most recently, newest first.
+    func recentlyVisitedRoomIDs() async -> Result<[String], ClientProxyError>
+    func recentlyVisitedRooms(filter: @Sendable (JoinedRoomProxyProtocol) async -> Bool) async -> [JoinedRoomProxyProtocol]
     func recentConversationCounterparts() async -> [UserProfile]
     
     // MARK: - Crypto

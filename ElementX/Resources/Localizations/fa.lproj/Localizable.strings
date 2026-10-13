@@ -86,6 +86,7 @@
 "action_choose_file" = "انتخاب فایل";
 "action_choose_photo" = "گزینش عکس";
 "action_clear" = "پاک سازی";
+"action_clear_all" = "Clear all";
 "action_close" = "بستن";
 "action_complete_verification" = "تکمیل تأیید";
 "action_confirm" = "تأیید";
@@ -96,6 +97,7 @@
 "action_copy_link" = "رونوشت از پیوند";
 "action_copy_link_to_message" = "رونوشت از پیوند پیام";
 "action_copy_text" = "رونوشت از متن";
+"action_copy_to_clipboard" = "Copy to clipboard";
 "action_create" = "ایجاد";
 "action_create_room" = "ایجاد اتاق";
 "action_create_space" = "ایجاد فضا";
@@ -174,7 +176,6 @@
 "action_retry_decryption" = "تلاش دوباره برای رمزگشایی";
 "action_save" = "ذخیره";
 "action_search" = "جست‌وجو";
-"action_select" = "Select";
 "action_select_all" = "گزینش همه";
 "action_send" = "فرستادن";
 "action_send_edited_message" = "فرستادن پیام ویراسته";
@@ -219,6 +220,7 @@
 "call_invalid_audio_device_bluetooth_devices_disabled" = "برنامه Element Call در این نسخه اندروید از دستگاه‌های صوتی بلوتوث پشتیبانی نمی‌کند. لطفاً دستگاه صوتی دیگری را انتخاب کنید.";
 "common_about" = "درباره";
 "common_acceptable_use_policy" = "سیاست استفادهٔ پذیرفتنی";
+"common_account_settings" = "Account settings";
 "common_add_account" = "افزودن یک حساب";
 "common_add_another_account" = "افزودن حسابی دیگر";
 "common_adding_caption" = "افزودن عنوان";
@@ -227,6 +229,7 @@
 "common_analytics" = "تجزیه و تحلیل";
 "common_android_shortcuts_remove_reason_left_room" = "اتاق را ترک کردید";
 "common_android_shortcuts_remove_reason_session_logged_out" = "شما از جلسه خارج شدید";
+"common_app_settings" = "App settings";
 "common_appearance" = "ظاهر";
 "common_audio" = "صدا";
 "common_beta" = "آزمایشی";
@@ -237,6 +240,8 @@
 "common_call_started" = "تماس آغاز شد";
 "common_call_you_declined" = "شما یک تماس را رد کردید";
 "common_chat_backup" = "پشتیبان گپ";
+"common_chats" = "Chats";
+"common_code_block" = "Code block";
 "common_copied_to_clipboard" = "در تخته‌گیره رونوشت شد";
 "common_copyright" = "حق رونوشت";
 "common_creating_room" = "ایجاد کردن اتاق…";
@@ -274,10 +279,12 @@
 "common_file_deleted" = "پرونده حذف شد";
 "common_file_saved" = "پرونده ذخیره شد";
 "common_forward_message" = "هدایت پیام";
+"common_forward_to" = "Forward to";
 "common_frequently_used" = "پراستفاده";
 "common_gallery" = "گالری";
 "common_gif" = "جیف";
 "common_group_call_in_progress" = "تماس گروهی در جریان است";
+"common_header_rooms" = "Rooms";
 "common_image" = "تصویر";
 "common_in_reply_to" = "در پاسخ به %1$@";
 "common_invite_unknown_profile" = "شناسهٔ ماتریکس نتوانست پیدا شود. ممکن است دعوت نرسیده باشد.";
@@ -290,16 +297,20 @@
 "common_live_location_ended" = "مکان زنده به پایان رسید";
 "common_loading" = "بار کردن…";
 "common_loading_more" = "بار کردن بیش‌تر…";
+"common_location_sharing" = "Location sharing";
+"common_media_upload_quality" = "Media upload quality";
 "common_message" = "پیام";
 "common_message_actions" = "کنش‌های پیام";
 "common_message_failed_to_send" = "پیام ارسال نشد";
 "common_message_layout" = "جینش پیام";
 "common_message_removed" = "پیام برداشته شد";
+"common_moderation_and_safety" = "Moderation & safety";
 "common_modern" = "نوین";
 "common_mute" = "بی‌صدا";
 "common_name" = "نام";
 "common_name_and_id" = "%1$@ ‏(%2$@)";
 "common_no_results" = "بدون نتیجه";
+"common_no_results_for" = "There are no results for “%1$@”. Try a new search term.";
 "common_no_room_name" = "بدون نام اتاق";
 "common_no_space_name" = "بدون نام فضا";
 "common_not_encrypted" = "رمزنگاری نشده";
@@ -338,6 +349,7 @@
 "common_replying_to" = "پاسخ دادن به %1$@";
 "common_report_a_problem" = "گزارش مشکل";
 "common_report_submitted" = "گزارش ثبت شد";
+"common_results_for" = "Results for “%1$@”";
 "common_rich_text_editor" = "ویرایشگر متن غنی";
 "common_role" = "نقش";
 "common_room" = "اتاق";
@@ -365,6 +377,7 @@
 "common_shared_live_location" = "مکان زنده به اشتراک‌گذاری شده";
 "common_shared_location" = "مکان هم‌رسانده";
 "common_shared_space" = "فضای اشتراکی";
+"common_signed_in" = "Signed in";
 "common_signing_out" = "خارج شدن";
 "common_something_went_wrong" = "چیزی اشتباه پیش رفت";
 "common_something_went_wrong_message" = "با مشکلی مواجه شدیم. لطفا دوباره امتحان کنید.";
@@ -376,6 +389,7 @@
 "common_success" = "موفّقیت";
 "common_suggested" = "پیشنهادی";
 "common_suggestions" = "پیشنهادها";
+"common_switch_accounts" = "Switch accounts";
 "common_syncing" = "هم‌گام ساختن";
 "common_text" = "متن";
 "common_third_party_notices" = "تذکّرهای سوم‌شخص";
@@ -416,6 +430,7 @@
 "common_waiting_live_location" = "در انتظار موقعیت مکانی زنده…";
 "common_world_readable_history" = "هر کسی می‌تواند تاریخچه را ببیند";
 "common_you" = "شما";
+"common_your_account" = "Your account";
 "confirm_recovery_key_banner_message" = "کلید بازیابی خود را تأیید کنید تا دسترسی به حافظه کلیدها و تاریخچه پیام‌هایتان حفظ شود .";
 "confirm_recovery_key_banner_primary_button_title" = "ورود کلید بازیابیتان";
 "confirm_recovery_key_banner_secondary_button_title" = "کلید بازیابی خود را فراموش کرده‌اید؟";
@@ -1058,6 +1073,12 @@
 "screen_missing_key_backup_step_4" = "برای فعال کردن فضای ذخیره‌سازی کلید، دستورالعمل‌ها را دنبال کنید";
 "screen_missing_key_backup_step_5" = "به %1$@ برگردید";
 "screen_missing_key_backup_title" = "قبل از ادامه به %1$@، فضای ذخیره‌سازی کلید خود را فعال کنید";
+"screen_moderation_and_safety_invites_heading" = "Invites";
+"screen_moderation_and_safety_other_users_heading" = "Other users";
+"screen_moderation_and_safety_share_presence_heading" = "Your appearance";
+"screen_multi_account_announcement_action" = "Add account";
+"screen_multi_account_announcement_description" = "Go to %1$@ to sign into another account. Then you can easily switch between them.";
+"screen_multi_account_announcement_title" = "You can now add multiple accounts";
 "screen_notification_optin_subtitle" = "می‌توانید بعداً تنظیماتتان را تغییر دهید.";
 "screen_notification_optin_title" = "اجازه به آگاهی‌ها و از دست ندادن پیام‌ها";
 "screen_notification_settings_additional_settings_section_title" = "تنظیمات اضافی";
@@ -1086,6 +1107,8 @@
 "screen_notification_settings_mode_mentions" = "اشاره‌ها";
 "screen_notification_settings_notification_section_title" = "آگاه کردنم برای";
 "screen_notification_settings_room_mention_label" = "آگاه کردنم برای ‪@room";
+"screen_notification_settings_show_all_activity_subtitle" = "Dots or number of unread messages";
+"screen_notification_settings_show_all_activity_title" = "Show all activity in the room list";
 "screen_notification_settings_sound_custom_fallback" = "سفارشی";
 "screen_notification_settings_sound_custom_sound_button_title" = "صدای سفارشی...";
 "screen_notification_settings_sound_delete_sound_error_title" = "خطا در حذف فایل";
@@ -1146,6 +1169,14 @@
 "screen_polls_history_filter_ongoing" = "در جریان";
 "screen_polls_history_filter_past" = "گذشته";
 "screen_polls_history_title" = "نظرسنجی‌ها";
+"screen_ptt_settings_battery_optimization" = "Ignore battery optimisation";
+"screen_ptt_settings_battery_optimization_description" = "Stay active in background";
+"screen_ptt_settings_covert_mode" = "Covert mode";
+"screen_ptt_settings_covert_mode_description" = "Mute all channels";
+"screen_ptt_settings_lock_screen" = "Show on lock screen";
+"screen_ptt_settings_lock_screen_description" = "Access from the lock screen";
+"screen_ptt_settings_system_overlay" = "Enable system overlay";
+"screen_ptt_settings_system_overlay_description" = "Access a floating action button";
 "screen_push_history_title" = "تاریخچهٔ آگاهی‌های ارسالی";
 "screen_qr_code_login_connecting_subtitle" = "برقرار کدن اتّصالی امن";
 "screen_qr_code_login_connection_note_secure_state_description" = "نتوانست اتّصالی امن به افزارهٔ جدید بسازد. افزاره‌های موجودتان هنوز امنند و نیازی نیست نگرانشان باشید.";
@@ -1290,11 +1321,14 @@
 "screen_room_change_role_section_users" = "اعضا";
 "screen_room_change_role_unsaved_changes_description" = "تغییراتی ذخیره نشده دارید.";
 "screen_room_change_role_unsaved_changes_title" = "ذخیرهٔ تغییرات؟";
-"screen_room_confirm_removal_message" = "Are you sure you wish to remove this message?";
 "screen_room_confirm_removal_reason_label" = "Reason (optional)";
-"screen_room_confirm_removal_reason_placeholder" = "Enter…";
-"screen_room_confirm_removal_title" = "Confirm removal";
+"screen_room_confirm_removal_reason_placeholder" = "Enter reason…";
+"screen_room_confirm_removal_reason_supporting_text" = "(Optional)";
+"screen_room_confirm_removal_title" = "Remove message?";
 "screen_room_details_add_topic_title" = "افزودن موضوع";
+"screen_room_details_audio_push_to_talk" = "Push to talk";
+"screen_room_details_audio_title" = "Room Audio";
+"screen_room_details_audio_video_calls" = "Video calls";
 "screen_room_details_badge_encrypted" = "رمز شده";
 "screen_room_details_badge_not_encrypted" = "رمزنگاری نشده";
 "screen_room_details_badge_public" = "اتاق عمومی";
@@ -1320,6 +1354,9 @@
 "screen_room_details_profile_row_title" = "نمایه";
 "screen_room_details_requests_to_join_title" = "درخواست‌های پیوستن";
 "screen_room_details_roles_and_permissions" = "نقش‌ها و مجوزها";
+"screen_room_details_room_audio_ptt" = "Push to talk";
+"screen_room_details_room_audio_title" = "Room Audio";
+"screen_room_details_room_audio_video_calls" = "Video calls";
 "screen_room_details_room_name_label" = "نام";
 "screen_room_details_security_and_privacy_title" = "امنیت و محرمانگی";
 "screen_room_details_security_title" = "امنیت";
@@ -1406,6 +1443,7 @@
 "screen_room_roles_and_permissions_room_details" = "جزییات اتاق";
 "screen_room_roles_and_permissions_space_details" = "جزئیات فضا";
 "screen_room_roles_and_permissions_title" = "نقش‌ها و مجوزها";
+"screen_room_select_error_cannot_load_rooms" = "The room list associated with this account cannot be loaded.";
 "screen_room_single_knock_request_accept_button_title" = "پذیرش";
 "screen_room_single_knock_request_title" = "%1$@ می‌خواهد به این اتاق بپیوندد";
 "screen_room_single_knock_request_view_button_title" = "نما";
@@ -1536,6 +1574,7 @@
 "screen_session_verification_use_another_device_title" = "برنامه را روی دستگاه تأیید شده دیگری باز کنید";
 "screen_session_verification_user_initiator_subtitle" = "برای امنیت بیشتر، با مقایسه مجموعه‌ای از ایموجی‌ها در دستگاه‌های خود، این کاربر را تأیید کنید. این کار را با استفاده از یک روش ارتباطی مطمئن انجام دهید.";
 "screen_session_verification_user_initiator_title" = "این کاربر را تایید می‌کنید؟";
+"screen_session_verification_user_requesting_verification" = "User requesting verification:";
 "screen_session_verification_user_responder_subtitle" = "برای امنیت بیشتر، اگر کاربر دیگری بخواهد هویت دیجیتالی شما را تأیید کند، مجموعه‌ای از ایموجی‌ها برای مقایسه به شما نشان داده می‌شود.";
 "screen_session_verification_waiting_another_device_subtitle" = "باید یک پنجره‌ی پاپ‌آپ روی دستگاه دیگر ببینید. اکنون تأیید را از آنجا شروع کنید.";
 "screen_session_verification_waiting_another_device_title" = "شروع تأیید در دستگاه دیگر";
@@ -1544,6 +1583,7 @@
 "screen_session_verification_waiting_subtitle" = "پس از پذیرش، می‌توانید به تأیید ادامه دهید.";
 "screen_session_verification_waiting_to_accept_subtitle" = "برای ادامه، درخواست شروع فرآیند تأیید را در جلسه دیگر خود بپذیرید.";
 "screen_session_verification_waiting_to_accept_title" = "منظر پذیرش درخواست";
+"screen_settings_add_account" = "Add account";
 "screen_settings_user_status_away" = "بعدا";
 "screen_settings_user_status_be_right_back" = "همین الان برگرد";
 "screen_settings_user_status_custom" = "سفارشی…";
@@ -1566,6 +1606,7 @@
 "screen_signed_out_reason_2" = "این نشست را از نشستی دیگر حذف کرده‌اید";
 "screen_signed_out_reason_3" = "مدیر کارسازتان دسترسیتان را نامعتبر کرده است";
 "screen_signed_out_subtitle" = "ممکن است به یکی از دلایل ذکر شده در زیر از سیستم خارج شده باشید. لطفا برای ادامه استفاده از %@ دوباره وارد شوید.";
+"screen_signed_out_subtitle_v2" = "This device was removed for one of the reasons listed below. Please sign in again to connect this device to your account.";
 "screen_signed_out_title" = "خارج شده‌اید";
 "screen_signout_confirmation_dialog_content" = "مطمئنید که می‌خواهید این افزاره را بردارید؟";
 "screen_signout_confirmation_dialog_submit" = "برداشتن این افزاره";

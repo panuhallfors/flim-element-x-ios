@@ -11,7 +11,9 @@ import Foundation
 
 struct UserSessionMockConfiguration {
     var clientProxy: ClientProxyProtocol = ClientProxyMock(.init())
+    var userSettings: UserSettings = .mock()
     var contentScannerService: ContentScannerServiceProtocol?
+    var liveLocationManager: LiveLocationManagerProtocol = LiveLocationManagerMock(.init())
 }
 
 @MainActor extension UserSessionMock {
@@ -19,12 +21,14 @@ struct UserSessionMockConfiguration {
         self.init()
         
         clientProxy = configuration.clientProxy
+        userSettings = configuration.userSettings
+        
         mediaProvider = MediaProviderMock(.init())
         voiceMessageMediaManager = VoiceMessageMediaManagerMock()
         contentScannerService = configuration.contentScannerService
         
         sessionSecurityStatePublisher = CurrentValueSubject<SessionSecurityState, Never>(.init(verificationState: .verified, recoveryState: .enabled)).asCurrentValuePublisher()
         
-        liveLocationManager = LiveLocationManagerMock(.init())
+        liveLocationManager = configuration.liveLocationManager
     }
 }

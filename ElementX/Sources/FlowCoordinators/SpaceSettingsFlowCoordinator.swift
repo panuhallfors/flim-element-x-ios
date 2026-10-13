@@ -251,7 +251,7 @@ final class SpaceSettingsFlowCoordinator: FlowCoordinatorProtocol {
         let stackCoordinator = NavigationStackCoordinator()
         let parameters = RoomDetailsEditScreenCoordinatorParameters(roomProxy: roomProxy,
                                                                     userSession: flowParameters.userSession,
-                                                                    mediaUploadingPreprocessor: MediaUploadingPreprocessor(appSettings: flowParameters.appSettings),
+                                                                    mediaUploadingPreprocessor: MediaUploadingPreprocessor(userSettings: flowParameters.userSession.userSettings),
                                                                     navigationStackCoordinator: stackCoordinator,
                                                                     userIndicatorController: flowParameters.userIndicatorController,
                                                                     orientationManager: flowParameters.appMediator.windowManager)
@@ -275,9 +275,9 @@ final class SpaceSettingsFlowCoordinator: FlowCoordinatorProtocol {
     
     private func presentSecurityAndPrivacyScreen() {
         let coordinator = SecurityAndPrivacyScreenCoordinator(parameters: .init(roomProxy: roomProxy,
-                                                                                clientProxy: flowParameters.userSession.clientProxy,
+                                                                                userSession: flowParameters.userSession,
                                                                                 userIndicatorController: flowParameters.userIndicatorController,
-                                                                                appSetting: flowParameters.appSettings))
+                                                                                appHooks: flowParameters.appHooks))
         
         coordinator.actionsPublisher.sink { [weak self] action in
             guard let self else { return }

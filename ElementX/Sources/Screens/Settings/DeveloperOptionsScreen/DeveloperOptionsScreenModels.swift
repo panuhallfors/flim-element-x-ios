@@ -6,6 +6,7 @@
 // Please see LICENSE files in the repository root for full details.
 //
 
+import Combine
 import Foundation
 
 enum DeveloperOptionsScreenViewModelAction {
@@ -56,10 +57,7 @@ protocol DeveloperOptionsProtocol: AnyObject {
     var enableOnlySignedDeviceIsolationMode: Bool { get set }
     var hideQuietNotificationAlerts: Bool { get set }
     var focusEventOnNotificationTap: Bool { get set }
-    var automaticBackPaginationEnabled: Bool { get set }
     
-    var roomListActivityVisibility: RoomListActivityVisibility { get set }
-    var roomListNotificationCountEnabled: Bool { get set }
     var elementCallBaseURLOverride: URL? { get set }
     
     var fuzzyRoomListSearchEnabled: Bool { get set }
@@ -74,6 +72,12 @@ protocol DeveloperOptionsProtocol: AnyObject {
     var linkNewDeviceEnabled: Bool { get set }
     
     var globalSearchEnabled: Bool { get set }
+    
+    var multiAccountEnabled: Bool { get set }
+    var multiAccountEnabledPublisher: AnyPublisher<Bool, Never> { get }
+    var hasSeenMultiAccountAnnouncement: Bool { get set }
+    
+    var nativeCallEnabled: Bool { get set }
 }
 
 extension AppSettings: DeveloperOptionsProtocol { }

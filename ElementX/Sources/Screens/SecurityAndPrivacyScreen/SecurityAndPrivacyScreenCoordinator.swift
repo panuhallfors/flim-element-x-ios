@@ -11,9 +11,9 @@ import SwiftUI
 
 struct SecurityAndPrivacyScreenCoordinatorParameters {
     let roomProxy: JoinedRoomProxyProtocol
-    let clientProxy: ClientProxyProtocol
+    let userSession: UserSessionProtocol
     let userIndicatorController: UserIndicatorControllerProtocol
-    let appSetting: AppSettings
+    let appHooks: AppHooks
 }
 
 enum SecurityAndPrivacyScreenCoordinatorAction {
@@ -34,9 +34,9 @@ final class SecurityAndPrivacyScreenCoordinator: CoordinatorProtocol {
     
     init(parameters: SecurityAndPrivacyScreenCoordinatorParameters) {
         viewModel = SecurityAndPrivacyScreenViewModel(roomProxy: parameters.roomProxy,
-                                                      clientProxy: parameters.clientProxy,
+                                                      userSession: parameters.userSession,
                                                       userIndicatorController: parameters.userIndicatorController,
-                                                      appSettings: parameters.appSetting)
+                                                      appHooks: parameters.appHooks)
     }
     
     func start() {

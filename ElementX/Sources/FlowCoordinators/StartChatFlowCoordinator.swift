@@ -214,8 +214,8 @@ class StartChatFlowCoordinator: FlowCoordinatorProtocol {
                                                                      shouldShowCancelButton: isRoot,
                                                                      userSession: flowParameters.userSession,
                                                                      userIndicatorController: flowParameters.userIndicatorController,
-                                                                     appSettings: flowParameters.appSettings,
-                                                                     analytics: flowParameters.analytics)
+                                                                     analytics: flowParameters.analytics,
+                                                                     appHooks: flowParameters.appHooks)
         let coordinator = CreateRoomScreenCoordinator(parameters: createParameters)
         coordinator.actions.sink { [weak self] action in
             guard let self else { return }

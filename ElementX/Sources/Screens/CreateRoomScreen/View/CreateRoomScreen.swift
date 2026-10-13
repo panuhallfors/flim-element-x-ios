@@ -113,7 +113,7 @@ struct CreateRoomScreen: View {
             if let avatarImage = context.viewState.avatarImage {
                 Image(uiImage: avatarImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill()
                     .scaledFrame(size: 70, relativeTo: .title)
                     .avatarShape(context.viewState.isSpace ? .roundedRect : .circle, size: 70)
                     .overlay(alignment: .bottomTrailing) {
@@ -451,15 +451,15 @@ struct CreateRoom_Previews: PreviewProvider, TestablePreview {
                                       isSpace: Bool = false,
                                       selectionMode: CreateRoomScreenSpaceSelectionMode = .editableSpacesList(preSelectedSpace: nil),
                                       isAliasAvailable: Bool = true) -> CreateRoomScreenViewModel {
-        let appSettings = AppSettings.volatile()
-        appSettings.knockingEnabled = isKnockingEnabled
+        let userSettings = UserSettings.mock()
+        userSettings.app.knockingEnabled = isKnockingEnabled
         
         let clientProxy = ClientProxyMock(.init(userIDServerName: "example.org",
                                                 userID: "@userid:example.com"))
         clientProxy.isAliasAvailableReturnValue = .success(isAliasAvailable)
         let spaces = [SpaceServiceRoom].mockJoinedSpaces2
         clientProxy.spaceService = SpaceServiceProxyMock(.init(editableSpaces: spaces))
-        let userSession = UserSessionMock(.init(clientProxy: clientProxy))
+        let userSession = UserSessionMock(.init(clientProxy: clientProxy, userSettings: userSettings))
         
         return CreateRoomScreenViewModel(isSpace: isSpace,
                                          spaceSelectionMode: selectionMode,
@@ -467,6 +467,6 @@ struct CreateRoom_Previews: PreviewProvider, TestablePreview {
                                          userSession: userSession,
                                          analytics: AnalyticsServiceMock(.init()),
                                          userIndicatorController: UserIndicatorControllerMock(),
-                                         appSettings: appSettings)
+                                         appHooks: AppHooks())
     }
 }

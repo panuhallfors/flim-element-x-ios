@@ -8,6 +8,7 @@
 
 import Combine
 @testable import ElementX
+import MatrixRustSDKMocks
 import NotificationCenter
 import Testing
 
@@ -193,6 +194,28 @@ final class NotificationManagerTests {
     }
     
     @Test
+    func removeDeliveredNotificationsForFullyReadRooms() async throws {
+        let room = RoomSummary(room: RoomSDKMock(), id: "!room:matrix.org", settingsMode: .allMessages,
+                               hasUnreadMessages: false, hasUnreadMentions: false, hasUnreadNotifications: false)
+        let lastMessageDate = try #require(room.lastMessageDate)
+        
+        // Delivered after the last message was sent, which is always the case for the last message's notification.
+        let readNotification = try UNNotification.with(userInfo: [NotificationConstants.UserInfoKey.roomIdentifier: room.id,
+                                                                  NotificationConstants.UserInfoKey.eventDate: lastMessageDate.addingTimeInterval(0.5)],
+                                                       identifier: "read",
+                                                       date: lastMessageDate.addingTimeInterval(5))
+        let newerNotification = try UNNotification.with(userInfo: [NotificationConstants.UserInfoKey.roomIdentifier: room.id,
+                                                                   NotificationConstants.UserInfoKey.eventDate: lastMessageDate.addingTimeInterval(1)],
+                                                        identifier: "newer",
+                                                        date: lastMessageDate.addingTimeInterval(5))
+        notificationCenter.deliveredNotificationsReturnValue = [readNotification, newerNotification]
+        
+        await notificationManager.removeDeliveredNotificationsForFullyReadRooms([room])
+        
+        #expect(notificationCenter.removeDeliveredNotificationsWithIdentifiersReceivedIdentifiers == ["read"])
+    }
+    
+    @Test
     func whenWillPresentNotificationsDelegateNotSet_CorrectPresentationOptionsReturned() async throws {
         let archiver = MockCoder(requiringSecureCoding: false)
         let notification = try #require(UNNotification(coder: archiver))
@@ -239,11 +262,8 @@ final class NotificationManagerTests {
     }
     
     @Test
-    func updatingAppBadgeCountUsesTheClientSideCount() async {
-        appSettings.roomListNotificationCountEnabled = true
-        clientProxy.totalUnreadNotifications = 7
-        
-        await notificationManager.updateAppBadgeCount()
+    func updatingAppBadgeCount() async {
+        await notificationManager.updateAppBadgeCount(7)
         
         #expect(notificationCenter.setBadgeCountReceivedNewBadgeCount == 7)
         #expect(appSettings.lastKnownBadgeCount == 7)
@@ -251,20 +271,9 @@ final class NotificationManagerTests {
     
     @Test
     func updatingAppBadgeCountWithoutASessionDoesNothing() async {
-        appSettings.roomListNotificationCountEnabled = true
         notificationManager.setUserSession(nil)
         
-        await notificationManager.updateAppBadgeCount()
-        
-        #expect(!notificationCenter.setBadgeCountCalled)
-    }
-    
-    @Test
-    func updatingAppBadgeCountWithFeatureDisabledDoesNothing() async {
-        appSettings.roomListNotificationCountEnabled = false
-        clientProxy.totalUnreadNotifications = 7
-        
-        await notificationManager.updateAppBadgeCount()
+        await notificationManager.updateAppBadgeCount(7)
         
         #expect(!notificationCenter.setBadgeCountCalled)
     }

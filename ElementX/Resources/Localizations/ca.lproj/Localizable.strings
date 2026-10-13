@@ -86,6 +86,7 @@
 "action_choose_file" = "Choose file";
 "action_choose_photo" = "Tria una foto";
 "action_clear" = "Esborra";
+"action_clear_all" = "Clear all";
 "action_close" = "Tanca";
 "action_complete_verification" = "Completa la verificació";
 "action_confirm" = "Confirma";
@@ -96,6 +97,7 @@
 "action_copy_link" = "Copia l'enllaç";
 "action_copy_link_to_message" = "Copia l'enllaç al missatge";
 "action_copy_text" = "Copia text";
+"action_copy_to_clipboard" = "Copy to clipboard";
 "action_create" = "Crea";
 "action_create_room" = "Crea sala";
 "action_create_space" = "Create space";
@@ -174,7 +176,6 @@
 "action_retry_decryption" = "Torna a intentar desxifrar";
 "action_save" = "Desa";
 "action_search" = "Cerca";
-"action_select" = "Select";
 "action_select_all" = "Select all";
 "action_send" = "Envia";
 "action_send_edited_message" = "Send edited message";
@@ -219,6 +220,7 @@
 "call_invalid_audio_device_bluetooth_devices_disabled" = "Element Call does not support using Bluetooth audio devices in this Android version. Please select a different audio device.";
 "common_about" = "Sobre l'aplicació";
 "common_acceptable_use_policy" = "Política d'ús a acceptar";
+"common_account_settings" = "Account settings";
 "common_add_account" = "Add an account";
 "common_add_another_account" = "Add account";
 "common_adding_caption" = "Afegint llegenda";
@@ -227,6 +229,7 @@
 "common_analytics" = "Analítiques";
 "common_android_shortcuts_remove_reason_left_room" = "Has sortit de la sala";
 "common_android_shortcuts_remove_reason_session_logged_out" = "You were logged out of the session";
+"common_app_settings" = "App settings";
 "common_appearance" = "Aspecte";
 "common_audio" = "Àudio";
 "common_beta" = "Beta";
@@ -237,6 +240,8 @@
 "common_call_started" = "Trucada iniciada";
 "common_call_you_declined" = "You declined a call";
 "common_chat_backup" = "Còpia de seguretat de xat";
+"common_chats" = "Chats";
+"common_code_block" = "Code block";
 "common_copied_to_clipboard" = "Copiat al porta-retalls";
 "common_copyright" = "Drets d'autor";
 "common_creating_room" = "Creant sala…";
@@ -274,10 +279,12 @@
 "common_file_deleted" = "Fitxer eliminat";
 "common_file_saved" = "Fitxer desat";
 "common_forward_message" = "Reenvia missatge";
+"common_forward_to" = "Forward to";
 "common_frequently_used" = "Utilitzats freqüentment";
 "common_gallery" = "Gallery";
 "common_gif" = "GIF";
 "common_group_call_in_progress" = "Group call in progress";
+"common_header_rooms" = "Rooms";
 "common_image" = "Imatge";
 "common_in_reply_to" = "En resposta a %1$@";
 "common_invite_unknown_profile" = "No s'ha trobat l'ID de Matrix, és possible que la invitació no s'hagi rebut.";
@@ -290,16 +297,20 @@
 "common_live_location_ended" = "Live location ended";
 "common_loading" = "S'està carregant…";
 "common_loading_more" = "Carregant més…";
+"common_location_sharing" = "Location sharing";
+"common_media_upload_quality" = "Media upload quality";
 "common_message" = "Missatge";
 "common_message_actions" = "Accions de missatge";
 "common_message_failed_to_send" = "Message failed to send";
 "common_message_layout" = "Estil dels missatges";
 "common_message_removed" = "Missatge eliminat";
+"common_moderation_and_safety" = "Moderation & safety";
 "common_modern" = "Modern";
 "common_mute" = "Silencia";
 "common_name" = "Name";
 "common_name_and_id" = "%1$@ (%2$@)";
 "common_no_results" = "Sense resultats";
+"common_no_results_for" = "There are no results for “%1$@”. Try a new search term.";
 "common_no_room_name" = "Sala sense nom";
 "common_no_space_name" = "No space name";
 "common_not_encrypted" = "Sense xifrar";
@@ -338,6 +349,7 @@
 "common_replying_to" = "Responent a %1$@";
 "common_report_a_problem" = "Informa d'un problema";
 "common_report_submitted" = "S'ha enviat";
+"common_results_for" = "Results for “%1$@”";
 "common_rich_text_editor" = "Editor de text enriquit";
 "common_role" = "Role";
 "common_room" = "Sala";
@@ -365,6 +377,7 @@
 "common_shared_live_location" = "Shared live location";
 "common_shared_location" = "Ubicació compartida";
 "common_shared_space" = "Shared space";
+"common_signed_in" = "Signed in";
 "common_signing_out" = "Tancant sessió";
 "common_something_went_wrong" = "Alguna cosa ha anat malament";
 "common_something_went_wrong_message" = "S'ha produït un problema. Torna-ho a intentar.";
@@ -376,6 +389,7 @@
 "common_success" = "Correcte";
 "common_suggested" = "Suggested";
 "common_suggestions" = "Suggeriments";
+"common_switch_accounts" = "Switch accounts";
 "common_syncing" = "Sincronitzant";
 "common_text" = "Text";
 "common_third_party_notices" = "Avisos de tercers";
@@ -416,6 +430,7 @@
 "common_waiting_live_location" = "Waiting for live location…";
 "common_world_readable_history" = "Anyone can see history";
 "common_you" = "Tu";
+"common_your_account" = "Your account";
 "confirm_recovery_key_banner_message" = "Confirma la clau de recuperació per mantenir l'accés a l'emmagatzematge de claus i a l'historial de missatges.";
 "confirm_recovery_key_banner_primary_button_title" = "Introdueix clau de recuperació";
 "confirm_recovery_key_banner_secondary_button_title" = "Has oblidat la clau de recuperació?";
@@ -1058,6 +1073,12 @@
 "screen_missing_key_backup_step_4" = "Follow the instructions to enable your key storage";
 "screen_missing_key_backup_step_5" = "Come back to %1$@";
 "screen_missing_key_backup_title" = "Enable your key storage before proceeding to %1$@";
+"screen_moderation_and_safety_invites_heading" = "Invites";
+"screen_moderation_and_safety_other_users_heading" = "Other users";
+"screen_moderation_and_safety_share_presence_heading" = "Your appearance";
+"screen_multi_account_announcement_action" = "Add account";
+"screen_multi_account_announcement_description" = "Go to %1$@ to sign into another account. Then you can easily switch between them.";
+"screen_multi_account_announcement_title" = "You can now add multiple accounts";
 "screen_notification_optin_subtitle" = "Pots canviar la configuració més tard.";
 "screen_notification_optin_title" = "Permet les notificacions i no perdis cap missatge";
 "screen_notification_settings_additional_settings_section_title" = "Configuració addicional";
@@ -1086,6 +1107,8 @@
 "screen_notification_settings_mode_mentions" = "Mencions";
 "screen_notification_settings_notification_section_title" = "Notifica'm a";
 "screen_notification_settings_room_mention_label" = "Notifica'm a @sala";
+"screen_notification_settings_show_all_activity_subtitle" = "Dots or number of unread messages";
+"screen_notification_settings_show_all_activity_title" = "Show all activity in the room list";
 "screen_notification_settings_sound_custom_fallback" = "Custom";
 "screen_notification_settings_sound_custom_sound_button_title" = "Custom sound...";
 "screen_notification_settings_sound_delete_sound_error_title" = "Error deleting file";
@@ -1146,6 +1169,14 @@
 "screen_polls_history_filter_ongoing" = "En curs";
 "screen_polls_history_filter_past" = "Pasades";
 "screen_polls_history_title" = "Votacions";
+"screen_ptt_settings_battery_optimization" = "Ignore battery optimisation";
+"screen_ptt_settings_battery_optimization_description" = "Stay active in background";
+"screen_ptt_settings_covert_mode" = "Covert mode";
+"screen_ptt_settings_covert_mode_description" = "Mute all channels";
+"screen_ptt_settings_lock_screen" = "Show on lock screen";
+"screen_ptt_settings_lock_screen_description" = "Access from the lock screen";
+"screen_ptt_settings_system_overlay" = "Enable system overlay";
+"screen_ptt_settings_system_overlay_description" = "Access a floating action button";
 "screen_push_history_title" = "Push history";
 "screen_qr_code_login_connecting_subtitle" = "Establint una connexió segura";
 "screen_qr_code_login_connection_note_secure_state_description" = "No s'ha pogut establir una connexió segura amb el dispositiu nou. Els dispositius existents continuen sent segurs, no te n'has de preocupar.";
@@ -1290,11 +1321,14 @@
 "screen_room_change_role_section_users" = "Membres";
 "screen_room_change_role_unsaved_changes_description" = "Hi ha canvis sense desar.";
 "screen_room_change_role_unsaved_changes_title" = "Desar canvis?";
-"screen_room_confirm_removal_message" = "Are you sure you wish to remove this message?";
 "screen_room_confirm_removal_reason_label" = "Reason (optional)";
-"screen_room_confirm_removal_reason_placeholder" = "Enter…";
-"screen_room_confirm_removal_title" = "Confirm removal";
+"screen_room_confirm_removal_reason_placeholder" = "Enter reason…";
+"screen_room_confirm_removal_reason_supporting_text" = "(Optional)";
+"screen_room_confirm_removal_title" = "Remove message?";
 "screen_room_details_add_topic_title" = "Afegeix tema";
+"screen_room_details_audio_push_to_talk" = "Push to talk";
+"screen_room_details_audio_title" = "Room Audio";
+"screen_room_details_audio_video_calls" = "Video calls";
 "screen_room_details_badge_encrypted" = "Xifrada";
 "screen_room_details_badge_not_encrypted" = "No xifrada";
 "screen_room_details_badge_public" = "Sala pública";
@@ -1320,6 +1354,9 @@
 "screen_room_details_profile_row_title" = "Perfil";
 "screen_room_details_requests_to_join_title" = "Sol·licituds d'unió";
 "screen_room_details_roles_and_permissions" = "Rols i permisos";
+"screen_room_details_room_audio_ptt" = "Push to talk";
+"screen_room_details_room_audio_title" = "Room Audio";
+"screen_room_details_room_audio_video_calls" = "Video calls";
 "screen_room_details_room_name_label" = "Name";
 "screen_room_details_security_and_privacy_title" = "Seguretat i privadesa";
 "screen_room_details_security_title" = "Seguretat";
@@ -1406,6 +1443,7 @@
 "screen_room_roles_and_permissions_room_details" = "Detalls de sala";
 "screen_room_roles_and_permissions_space_details" = "Space details";
 "screen_room_roles_and_permissions_title" = "Rols i permisos";
+"screen_room_select_error_cannot_load_rooms" = "The room list associated with this account cannot be loaded.";
 "screen_room_single_knock_request_accept_button_title" = "Accepta";
 "screen_room_single_knock_request_title" = "%1$@ vol unir-se a aquesta sala";
 "screen_room_single_knock_request_view_button_title" = "View";
@@ -1536,6 +1574,7 @@
 "screen_session_verification_use_another_device_title" = "Obre l'aplicació en un altre dispositiu verificat";
 "screen_session_verification_user_initiator_subtitle" = "Per a més seguretat, verifica aquest usuari comparant un conjunt d'emoticones vostres dispositius. Fes-ho a través d'un mitjà de comunicació fiable, o en persona.";
 "screen_session_verification_user_initiator_title" = "Vols verificar aquest usuari?";
+"screen_session_verification_user_requesting_verification" = "User requesting verification:";
 "screen_session_verification_user_responder_subtitle" = "Per a més seguretat, un altre usuari vol verificar la teva identitat. Se't mostrarà un conjunt d'emoticones a comparar.";
 "screen_session_verification_waiting_another_device_subtitle" = "Hauries de veure una finestra emergent a l'altre dispositiu. Inicia, ara, la verificació des d'allà.";
 "screen_session_verification_waiting_another_device_title" = "Inicia la verificació a l'altre dispositiu";
@@ -1544,6 +1583,7 @@
 "screen_session_verification_waiting_subtitle" = "Un cop acceptat, podràs continuar amb la verificació.";
 "screen_session_verification_waiting_to_accept_subtitle" = "Per continuar, accepta la sol·licitud per iniciar el procés de verificació a l'altra sessió.";
 "screen_session_verification_waiting_to_accept_title" = "Esperant que s'accepti la sol·licitud";
+"screen_settings_add_account" = "Add account";
 "screen_settings_user_status_away" = "Away";
 "screen_settings_user_status_be_right_back" = "Be right back";
 "screen_settings_user_status_custom" = "Custom…";
@@ -1566,6 +1606,7 @@
 "screen_signed_out_reason_2" = "Has eliminat la sessió des d'una altra sessió";
 "screen_signed_out_reason_3" = "L'administrador del teu servidor t'ha invalidat l'accés";
 "screen_signed_out_subtitle" = "S'ha tancat la sessió per algun dels motius enumerats a continuació. Torna a iniciar sessió per continuar utilitzant %@.";
+"screen_signed_out_subtitle_v2" = "This device was removed for one of the reasons listed below. Please sign in again to connect this device to your account.";
 "screen_signed_out_title" = "Has tancat sessió";
 "screen_signout_confirmation_dialog_content" = "Segur que vols tancar sessió?";
 "screen_signout_confirmation_dialog_submit" = "Tanca sessió";

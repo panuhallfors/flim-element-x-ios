@@ -86,6 +86,7 @@
 "action_choose_file" = "Choose file";
 "action_choose_photo" = "აირჩიეთ ფოტო";
 "action_clear" = "გასუფთავება";
+"action_clear_all" = "Clear all";
 "action_close" = "დახურვა";
 "action_complete_verification" = "დადასტურების დასრულება";
 "action_confirm" = "დადასტურება";
@@ -96,6 +97,7 @@
 "action_copy_link" = "ბმულის კოპირება";
 "action_copy_link_to_message" = "დააკოპირეთ შეტყობინების ბმული";
 "action_copy_text" = "Copy text";
+"action_copy_to_clipboard" = "Copy to clipboard";
 "action_create" = "შექმნა";
 "action_create_room" = "ოთახის შექმნა";
 "action_create_space" = "Create space";
@@ -174,7 +176,6 @@
 "action_retry_decryption" = "გაშიფვრის ხელახლა ცდა";
 "action_save" = "შენახვა";
 "action_search" = "ძიება";
-"action_select" = "Select";
 "action_select_all" = "Select all";
 "action_send" = "გაგზავნა";
 "action_send_edited_message" = "Send edited message";
@@ -219,6 +220,7 @@
 "call_invalid_audio_device_bluetooth_devices_disabled" = "Element Call does not support using Bluetooth audio devices in this Android version. Please select a different audio device.";
 "common_about" = "შესახებ";
 "common_acceptable_use_policy" = "მისაღები გამოყენების პოლიტიკა";
+"common_account_settings" = "Account settings";
 "common_add_account" = "Add an account";
 "common_add_another_account" = "Add account";
 "common_adding_caption" = "Adding caption";
@@ -227,6 +229,7 @@
 "common_analytics" = "ანალიტიკა";
 "common_android_shortcuts_remove_reason_left_room" = "თქვენ დატოვეთ ოთახი";
 "common_android_shortcuts_remove_reason_session_logged_out" = "You were logged out of the session";
+"common_app_settings" = "App settings";
 "common_appearance" = "გარეგნობა";
 "common_audio" = "აუდიო";
 "common_beta" = "Beta";
@@ -237,6 +240,8 @@
 "common_call_started" = "Call started";
 "common_call_you_declined" = "You declined a call";
 "common_chat_backup" = "ჩატის სარეზერვო ასლი";
+"common_chats" = "Chats";
+"common_code_block" = "Code block";
 "common_copied_to_clipboard" = "Copied to clipboard";
 "common_copyright" = "საავტორო უფლება";
 "common_creating_room" = "ოთახის შექმნა...";
@@ -274,10 +279,12 @@
 "common_file_deleted" = "File deleted";
 "common_file_saved" = "File saved";
 "common_forward_message" = "შეტყობინების გადაგზავნა";
+"common_forward_to" = "Forward to";
 "common_frequently_used" = "Frequently used";
 "common_gallery" = "Gallery";
 "common_gif" = "GIF";
 "common_group_call_in_progress" = "Group call in progress";
+"common_header_rooms" = "Rooms";
 "common_image" = "სურათი";
 "common_in_reply_to" = "%1$@-ს პასუხად";
 "common_invite_unknown_profile" = "ეს Matrix ID ვერ მოიძებნა, ამიტომ მოწვევა შეიძლება არ იყოს მიღებული.";
@@ -290,16 +297,20 @@
 "common_live_location_ended" = "Live location ended";
 "common_loading" = "იტვირთება…";
 "common_loading_more" = "Loading more…";
+"common_location_sharing" = "Location sharing";
+"common_media_upload_quality" = "Media upload quality";
 "common_message" = "შეტყობინება";
 "common_message_actions" = "შეტყობინებაზე მოქმედებები";
 "common_message_failed_to_send" = "Message failed to send";
 "common_message_layout" = "შეტყობინებების ფორმა";
 "common_message_removed" = "მესიჯი წაშლილია";
+"common_moderation_and_safety" = "Moderation & safety";
 "common_modern" = "თანამედროვე";
 "common_mute" = "დადუმება";
 "common_name" = "Name";
 "common_name_and_id" = "%1$@ (%2$@)";
 "common_no_results" = "შედეგი არ არის";
+"common_no_results_for" = "There are no results for “%1$@”. Try a new search term.";
 "common_no_room_name" = "No room name";
 "common_no_space_name" = "No space name";
 "common_not_encrypted" = "Not encrypted";
@@ -338,6 +349,7 @@
 "common_replying_to" = "პასუხი %1$@-ს";
 "common_report_a_problem" = "შეტყობინება პრობლემაზე";
 "common_report_submitted" = "რეპორტი გაგზავნილია";
+"common_results_for" = "Results for “%1$@”";
 "common_rich_text_editor" = "მდიდარი ტექსტის რედაქტორი";
 "common_role" = "Role";
 "common_room" = "ოთახი";
@@ -365,6 +377,7 @@
 "common_shared_live_location" = "Shared live location";
 "common_shared_location" = "გაზიარებული მდებარეობა";
 "common_shared_space" = "Shared space";
+"common_signed_in" = "Signed in";
 "common_signing_out" = "გასვლა…";
 "common_something_went_wrong" = "Something went wrong";
 "common_something_went_wrong_message" = "We encountered an issue. Please try again.";
@@ -376,6 +389,7 @@
 "common_success" = "წარმატება";
 "common_suggested" = "Suggested";
 "common_suggestions" = "შეთავაზებები";
+"common_switch_accounts" = "Switch accounts";
 "common_syncing" = "სინქრონიზაცია";
 "common_text" = "ტექსტი";
 "common_third_party_notices" = "მესამე პირის შენიშვნები";
@@ -416,6 +430,7 @@
 "common_waiting_live_location" = "Waiting for live location…";
 "common_world_readable_history" = "Anyone can see history";
 "common_you" = "You";
+"common_your_account" = "Your account";
 "confirm_recovery_key_banner_message" = "დაადასტურეთ თქვენი აღდგენის გასაღები რათა გქონდეთ წვდომა გასაღებების დამგროვებელთან და შეტყობინებების ისტორიასთან.";
 "confirm_recovery_key_banner_primary_button_title" = "Enter your recovery key";
 "confirm_recovery_key_banner_secondary_button_title" = "Forgot your recovery key?";
@@ -619,8 +634,8 @@
 "screen_advanced_settings_share_presence_description" = "გამორთვის შემთხვევაში თქვენ ვერ მიიღებთ და ვერ გაგზავნით წაკითხვის ან წერის შეტყობინებებს.";
 "screen_advanced_settings_show_media_timeline_always_hide" = "Always hide";
 "screen_advanced_settings_show_media_timeline_always_show" = "Always show";
-"screen_advanced_settings_show_media_timeline_private_rooms" = "In private rooms";
-"screen_advanced_settings_show_media_timeline_subtitle" = "A hidden media can always be shown by tapping on it";
+"screen_advanced_settings_show_media_timeline_private_rooms" = "Show in private rooms";
+"screen_advanced_settings_show_media_timeline_subtitle" = "Hidden media can always be shown by tapping on it.";
 "screen_advanced_settings_show_media_timeline_title" = "Show media in timeline";
 "screen_advanced_settings_view_source_description" = "ჩართეთ ოპცია რათა შეტყობინების წყაროს დროის ისტორია ნახოთ.";
 "screen_analytics_prompt_data_usage" = "ჩვენ არ ჩავწერთ და არ დავაფიქსირებთ პერსონალურ მონაცემებს";
@@ -850,10 +865,10 @@
 "screen_edit_profile_updating_details" = "პროფილის განახლება...";
 "screen_edit_room_address_room_address_section_footer" = "You’ll need an address in order to make it visible in the public directory.";
 "screen_edit_room_address_title" = "Edit address";
-"screen_encryption_reset_action_continue_reset" = "Continue reset";
+"screen_encryption_reset_action_continue_reset" = "Continue";
 "screen_encryption_reset_bullet_1" = "Your account details, contacts, preferences, and chat list will be kept";
 "screen_encryption_reset_bullet_2" = "You will lose any message history that’s stored only on the server";
-"screen_encryption_reset_bullet_3" = "You will need to verify all your existing devices and contacts again";
+"screen_encryption_reset_bullet_3" = "Other users will see that your digital identity has been reset";
 "screen_encryption_reset_footer" = "Only reset your digital identity if you don't have access to another verified device and you don't have your recovery key.";
 "screen_encryption_reset_title" = "Can't confirm? You’ll need to reset your digital identity.";
 "screen_home_tab_chats" = "ჩატები";
@@ -1058,6 +1073,12 @@
 "screen_missing_key_backup_step_4" = "Follow the instructions to enable your key storage";
 "screen_missing_key_backup_step_5" = "Come back to %1$@";
 "screen_missing_key_backup_title" = "Enable your key storage before proceeding to %1$@";
+"screen_moderation_and_safety_invites_heading" = "Invites";
+"screen_moderation_and_safety_other_users_heading" = "Other users";
+"screen_moderation_and_safety_share_presence_heading" = "Your appearance";
+"screen_multi_account_announcement_action" = "Add account";
+"screen_multi_account_announcement_description" = "Go to %1$@ to sign into another account. Then you can easily switch between them.";
+"screen_multi_account_announcement_title" = "You can now add multiple accounts";
 "screen_notification_optin_subtitle" = "თქვენ შეგიძლიათ შეცვალოთ თქვენი პარამეტრები მოგვიანებით.";
 "screen_notification_optin_title" = "ყველა შეტყობინებაზე შეტყობინებების მიღება";
 "screen_notification_settings_additional_settings_section_title" = "დამატებითი პარამეტრები";
@@ -1086,6 +1107,8 @@
 "screen_notification_settings_mode_mentions" = "ხსენებები";
 "screen_notification_settings_notification_section_title" = "ჩემი შეტყობინება შემდეგისთვის:";
 "screen_notification_settings_room_mention_label" = "ჩემი შეტყობინება @room-ზე";
+"screen_notification_settings_show_all_activity_subtitle" = "Dots or number of unread messages";
+"screen_notification_settings_show_all_activity_title" = "Show all activity in the room list";
 "screen_notification_settings_sound_custom_fallback" = "Custom";
 "screen_notification_settings_sound_custom_sound_button_title" = "Custom sound...";
 "screen_notification_settings_sound_delete_sound_error_title" = "Error deleting file";
@@ -1146,6 +1169,14 @@
 "screen_polls_history_filter_ongoing" = "მიმდინარე";
 "screen_polls_history_filter_past" = "წარსული";
 "screen_polls_history_title" = "გამოკითხვები";
+"screen_ptt_settings_battery_optimization" = "Ignore battery optimisation";
+"screen_ptt_settings_battery_optimization_description" = "Stay active in background";
+"screen_ptt_settings_covert_mode" = "Covert mode";
+"screen_ptt_settings_covert_mode_description" = "Mute all channels";
+"screen_ptt_settings_lock_screen" = "Show on lock screen";
+"screen_ptt_settings_lock_screen_description" = "Access from the lock screen";
+"screen_ptt_settings_system_overlay" = "Enable system overlay";
+"screen_ptt_settings_system_overlay_description" = "Access a floating action button";
 "screen_push_history_title" = "Push history";
 "screen_qr_code_login_connecting_subtitle" = "Establishing a secure connection";
 "screen_qr_code_login_connection_note_secure_state_description" = "A secure connection could not be made to the new device. Your existing devices are still safe and you don't need to worry about them.";
@@ -1290,11 +1321,14 @@
 "screen_room_change_role_section_users" = "წევრები";
 "screen_room_change_role_unsaved_changes_description" = "თქვენ გაქვთ შეუნახავი ცვლილებები";
 "screen_room_change_role_unsaved_changes_title" = "შენახვა?";
-"screen_room_confirm_removal_message" = "Are you sure you wish to remove this message?";
 "screen_room_confirm_removal_reason_label" = "Reason (optional)";
-"screen_room_confirm_removal_reason_placeholder" = "Enter…";
-"screen_room_confirm_removal_title" = "Confirm removal";
+"screen_room_confirm_removal_reason_placeholder" = "Enter reason…";
+"screen_room_confirm_removal_reason_supporting_text" = "(Optional)";
+"screen_room_confirm_removal_title" = "Remove message?";
 "screen_room_details_add_topic_title" = "თემის დამატება";
+"screen_room_details_audio_push_to_talk" = "Push to talk";
+"screen_room_details_audio_title" = "Room Audio";
+"screen_room_details_audio_video_calls" = "Video calls";
 "screen_room_details_badge_encrypted" = "Encrypted";
 "screen_room_details_badge_not_encrypted" = "Not encrypted";
 "screen_room_details_badge_public" = "Public room";
@@ -1320,6 +1354,9 @@
 "screen_room_details_profile_row_title" = "პროფილი";
 "screen_room_details_requests_to_join_title" = "Requests to join";
 "screen_room_details_roles_and_permissions" = "როლები და ნებართვები";
+"screen_room_details_room_audio_ptt" = "Push to talk";
+"screen_room_details_room_audio_title" = "Room Audio";
+"screen_room_details_room_audio_video_calls" = "Video calls";
 "screen_room_details_room_name_label" = "Name";
 "screen_room_details_security_and_privacy_title" = "Security & privacy";
 "screen_room_details_security_title" = "უსაფრთხოება";
@@ -1406,6 +1443,7 @@
 "screen_room_roles_and_permissions_room_details" = "ოთახის დეტალები";
 "screen_room_roles_and_permissions_space_details" = "Space details";
 "screen_room_roles_and_permissions_title" = "როლები და ნებართვები";
+"screen_room_select_error_cannot_load_rooms" = "The room list associated with this account cannot be loaded.";
 "screen_room_single_knock_request_accept_button_title" = "მიღება";
 "screen_room_single_knock_request_title" = "%1$@ wants to join this room";
 "screen_room_single_knock_request_view_button_title" = "View";
@@ -1536,6 +1574,7 @@
 "screen_session_verification_use_another_device_title" = "Open the app on another verified device";
 "screen_session_verification_user_initiator_subtitle" = "For extra security, verify this user by comparing a set of emojis on your devices. Do this by using a trusted way to communicate.";
 "screen_session_verification_user_initiator_title" = "Verify this user?";
+"screen_session_verification_user_requesting_verification" = "User requesting verification:";
 "screen_session_verification_user_responder_subtitle" = "For extra security, another user wants to verify your digital identity. You’ll be shown a set of emojis to compare.";
 "screen_session_verification_waiting_another_device_subtitle" = "You should see a popup on the other device. Start the verification from there now.";
 "screen_session_verification_waiting_another_device_title" = "Start verification on the other device";
@@ -1544,6 +1583,7 @@
 "screen_session_verification_waiting_subtitle" = "Once accepted you’ll be able to continue with the verification.";
 "screen_session_verification_waiting_to_accept_subtitle" = "მიიღეთ დადასტურების მოთხოვნა თქვენს სხვა სესიაში ამ პროცესის გასაგრძელებლად.";
 "screen_session_verification_waiting_to_accept_title" = "მოთხოვნის მიღებას ველოდებით";
+"screen_settings_add_account" = "Add account";
 "screen_settings_user_status_away" = "Away";
 "screen_settings_user_status_be_right_back" = "Be right back";
 "screen_settings_user_status_custom" = "Custom…";
@@ -1566,6 +1606,7 @@
 "screen_signed_out_reason_2" = "თქვენ სესია წაშალეთ სხვა სესიიდან";
 "screen_signed_out_reason_3" = "თქვენი სერვერის ადმინისტრატორმა გააუქმა თქვენი წვდომა";
 "screen_signed_out_subtitle" = "ალბათ, თქვენ გამოხვედით ქვემოთ ჩამოთვლილი ერთ-ერთი მიზეზის გამო. გთხოვთ, შეხვიდეთ ანგარიშში, რათა გააგრძელოთ %@-ს გამოყენება.";
+"screen_signed_out_subtitle_v2" = "This device was removed for one of the reasons listed below. Please sign in again to connect this device to your account.";
 "screen_signed_out_title" = "თქვენ ანგარიშიდან გამოსული ხართ";
 "screen_signout_confirmation_dialog_content" = "დარწმუნებული ხართ, რომ გსურთ გამოსვლა?";
 "screen_signout_confirmation_dialog_submit" = "გამოსვლა";

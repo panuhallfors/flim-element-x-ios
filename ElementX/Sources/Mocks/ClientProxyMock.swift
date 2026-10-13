@@ -64,6 +64,11 @@ extension ClientProxyMock {
         alternateRoomSummaryProvider = RoomSummaryProviderMock(.init())
         staticRoomSummaryProvider = RoomSummaryProviderMock(.init())
         
+        let searchService = SearchServiceProxyMock()
+        searchService.resultsPublisher = .init([])
+        searchService.paginationStatePublisher = .init(.idle(endReached: true))
+        self.searchService = searchService
+        
         roomDirectorySearchProxyReturnValue = configuration.roomDirectorySearchProxy
         
         actionsPublisher = PassthroughSubject<ClientProxyAction, Never>().eraseToAnyPublisher()
@@ -106,6 +111,7 @@ extension ClientProxyMock {
         unignoreUserReturnValue = .success(())
         
         trackRecentlyVisitedRoomReturnValue = .success(())
+        recentlyVisitedRoomIDsReturnValue = .success([])
         recentlyVisitedRoomsFilterReturnValue = []
         recentConversationCounterpartsReturnValue = []
         

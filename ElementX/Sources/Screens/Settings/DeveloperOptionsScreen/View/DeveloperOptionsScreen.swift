@@ -59,19 +59,14 @@ struct DeveloperOptionsScreen: View {
                     .generalSectionRows(isSignedIn: context.viewState.isSignedIn)
             }
             
+            Section("Accounts") {
+                Toggle(isOn: $context.multiAccountEnabled) {
+                    Text("Multi-account")
+                    Text("Switching it on shows the announcement again.")
+                }
+            }
+            
             Section("Room List") {
-                Picker("Room list activity visibility", selection: $context.roomListActivityVisibility) {
-                    ForEach(RoomListActivityVisibility.allCases, id: \.self) { visibility in
-                        Text(visibility.rawValue.capitalized)
-                            .tag(visibility)
-                    }
-                }
-                
-                Toggle(isOn: $context.roomListNotificationCountEnabled) {
-                    Text("Show unread notification count")
-                    Text("Also makes the app icon badge use the SDK's own unread notification count")
-                }
-                
                 Toggle(isOn: $context.fuzzyRoomListSearchEnabled) {
                     Text("Fuzzy searching")
                 }
@@ -82,11 +77,6 @@ struct DeveloperOptionsScreen: View {
                 
                 Toggle(isOn: $context.mentionsFilterEnabled) {
                     Text("Mentions filter")
-                }
-                
-                Toggle(isOn: $context.automaticBackPaginationEnabled) {
-                    Text("Automatic back pagination")
-                    Text("Requires app reboot")
                 }
             }
             
@@ -105,7 +95,7 @@ struct DeveloperOptionsScreen: View {
                 
                 Toggle(isOn: $context.messageMultiSelectEnabled) {
                     Text("Multi-select messages")
-                    Text("Adds a Select action to the message menu to pick several messages at once.")
+                    Text("Forward starts a selection so several messages can be forwarded at once.")
                 }
             }
             
@@ -120,7 +110,7 @@ struct DeveloperOptionsScreen: View {
                 Text("This setting controls how end-to-end encryption (E2EE) keys are exchanged. Enabling it will prevent the inclusion of devices that have not been explicitly verified by their owners.")
             }
             
-            Section("Element Call remote URL override") {
+            Section {
                 TextField("Leave empty to use EC locally", text: $elementCallURLOverrideString)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
@@ -133,6 +123,13 @@ struct DeveloperOptionsScreen: View {
                             context.elementCallBaseURLOverride = url
                         }
                     }
+                Toggle(isOn: $context.nativeCallEnabled) {
+                    Text("Experimental native calls")
+                }
+            } header: {
+                Text("Calls")
+            } footer: {
+                Text("The URL override only applies to calls run in the Element Call web view, which native calls replace.")
             }
             
             Section("Notifications") {

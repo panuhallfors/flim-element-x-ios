@@ -86,6 +86,7 @@
 "action_choose_file" = "Vali fail";
 "action_choose_photo" = "Vali foto";
 "action_clear" = "Selge";
+"action_clear_all" = "Clear all";
 "action_close" = "Sulge";
 "action_complete_verification" = "Tee verifitseerimine lõpuni";
 "action_confirm" = "Kinnita";
@@ -96,6 +97,7 @@
 "action_copy_link" = "Kopeeri link";
 "action_copy_link_to_message" = "Kopeeri sõnumi link";
 "action_copy_text" = "Kopeeri tekst";
+"action_copy_to_clipboard" = "Copy to clipboard";
 "action_create" = "Loo";
 "action_create_room" = "Loo jututuba";
 "action_create_space" = "Loo kogukond";
@@ -174,7 +176,6 @@
 "action_retry_decryption" = "Proovi dekrüptimist uuesti";
 "action_save" = "Salvesta";
 "action_search" = "Otsi";
-"action_select" = "Select";
 "action_select_all" = "Vali kõik";
 "action_send" = "Saada";
 "action_send_edited_message" = "Saada muudetud sõnum";
@@ -219,6 +220,7 @@
 "call_invalid_audio_device_bluetooth_devices_disabled" = "Element Call ei võimalda selles Androidi versioonis Bluetoothi heliseadmete kasutamist. Palun vali mõni muu heliseade.";
 "common_about" = "Rakenduse teave";
 "common_acceptable_use_policy" = "Vastuvõetava kasutamise põhimõtted";
+"common_account_settings" = "Account settings";
 "common_add_account" = "Lisa kasutajakonto";
 "common_add_another_account" = "Lisa veel üks kasutajakonto";
 "common_adding_caption" = "Lisame selgitust";
@@ -227,6 +229,7 @@
 "common_analytics" = "Analüütika";
 "common_android_shortcuts_remove_reason_left_room" = "Sina lahkusid jututoast";
 "common_android_shortcuts_remove_reason_session_logged_out" = "Sa olid sessioonist väljaloginud";
+"common_app_settings" = "App settings";
 "common_appearance" = "Välimus";
 "common_audio" = "Heli";
 "common_beta" = "Beetaversioon";
@@ -237,6 +240,8 @@
 "common_call_started" = "Kõne algas";
 "common_call_you_declined" = "Sa keeldusid kõnest";
 "common_chat_backup" = "Vestluse varukoopia";
+"common_chats" = "Chats";
+"common_code_block" = "Code block";
 "common_copied_to_clipboard" = "Kopeeritud lõikelauale";
 "common_copyright" = "Autoriõigused";
 "common_creating_room" = "Loome jututoa…";
@@ -274,10 +279,12 @@
 "common_file_deleted" = "Fail on kustutatud";
 "common_file_saved" = "Fail on salvestatud";
 "common_forward_message" = "Edasta sõnum";
+"common_forward_to" = "Forward to";
 "common_frequently_used" = "Sagedasti kasutatud";
 "common_gallery" = "Galerii";
 "common_gif" = "GIF";
 "common_group_call_in_progress" = "Rühmakõne on pooleli";
+"common_header_rooms" = "Rooms";
 "common_image" = "Pilt";
 "common_in_reply_to" = "Vastuseks kasutajale %1$@";
 "common_invite_unknown_profile" = "Sellist Matrix'i kasutajatunnust ei õnnestu leida, seega sõnumit ilmselt keegi kätte ei saa.";
@@ -290,16 +297,20 @@
 "common_live_location_ended" = "Reaalajas asukoha jagamine on lõppenud";
 "common_loading" = "Laadime…";
 "common_loading_more" = "Laadime veel...";
+"common_location_sharing" = "Location sharing";
+"common_media_upload_quality" = "Media upload quality";
 "common_message" = "Sõnum";
 "common_message_actions" = "Tegevused sõnumiga";
 "common_message_failed_to_send" = "Sõnumi saatmine ei õnnestunud";
 "common_message_layout" = "Sõnumi paigutus";
 "common_message_removed" = "Sõnum on eemaldatud";
+"common_moderation_and_safety" = "Moderation & safety";
 "common_modern" = "Kaasaegne";
 "common_mute" = "Summutatud";
 "common_name" = "Nimi";
 "common_name_and_id" = "%1$@ (%2$@)";
 "common_no_results" = "Otsingul pole tulemusi";
+"common_no_results_for" = "There are no results for “%1$@”. Try a new search term.";
 "common_no_room_name" = "Jututoal puudub nimi";
 "common_no_space_name" = "Kogukonnal pole nime";
 "common_not_encrypted" = "Krüptimata";
@@ -338,6 +349,7 @@
 "common_replying_to" = "Vastates kasutajale %1$@";
 "common_report_a_problem" = "Teata veast";
 "common_report_submitted" = "Veateade on saadetud";
+"common_results_for" = "Results for “%1$@”";
 "common_rich_text_editor" = "Vormindatud teksti toimeti";
 "common_role" = "Roll";
 "common_room" = "Jututuba";
@@ -365,6 +377,7 @@
 "common_shared_live_location" = "Reaalajas jagatud asukoht";
 "common_shared_location" = "Jagatud asukoht";
 "common_shared_space" = "Jagatud kogukond";
+"common_signed_in" = "Signed in";
 "common_signing_out" = "Seade on eemaldamisel";
 "common_something_went_wrong" = "Midagi läks valesti";
 "common_something_went_wrong_message" = "Tekkis viga. Palun proovi uuesti.";
@@ -376,6 +389,7 @@
 "common_success" = "Õnnestus";
 "common_suggested" = "Soovitatud";
 "common_suggestions" = "Soovitused";
+"common_switch_accounts" = "Switch accounts";
 "common_syncing" = "Sünkroniseerime";
 "common_text" = "Tekst";
 "common_third_party_notices" = "Kolmandate osapoolte teatised";
@@ -416,6 +430,7 @@
 "common_waiting_live_location" = "Ootan asukoha jagamist reaalajas…";
 "common_world_readable_history" = "Kõik võivad ajalugu näha";
 "common_you" = "Sina";
+"common_your_account" = "Your account";
 "confirm_recovery_key_banner_message" = "Säilitamaks ligipääsu vestluste ja krüptovõtmete varukoopiale, palun sisesta kinnituseks oma taastevõti.";
 "confirm_recovery_key_banner_primary_button_title" = "Sisesta oma taastevõti";
 "confirm_recovery_key_banner_secondary_button_title" = "Kas unustasid oma taastevõtme?";
@@ -1058,6 +1073,12 @@
 "screen_missing_key_backup_step_4" = "Võtmehoidla kasutuselevõtmiseks palun järgi juhendit";
 "screen_missing_key_backup_step_5" = "Tule tagasi rakendusse %1$@";
 "screen_missing_key_backup_title" = "Enne jätkamist rakenduses %1$@ võta oma võtmehoidla kasutusele";
+"screen_moderation_and_safety_invites_heading" = "Invites";
+"screen_moderation_and_safety_other_users_heading" = "Other users";
+"screen_moderation_and_safety_share_presence_heading" = "Your appearance";
+"screen_multi_account_announcement_action" = "Add account";
+"screen_multi_account_announcement_description" = "Go to %1$@ to sign into another account. Then you can easily switch between them.";
+"screen_multi_account_announcement_title" = "You can now add multiple accounts";
 "screen_notification_optin_subtitle" = "Sa võid seadistusi hiljem alati muuta.";
 "screen_notification_optin_title" = "Luba teavitused ja kunagi ei jää sul sõnumid märkamata";
 "screen_notification_settings_additional_settings_section_title" = "Täiendavad seadistused";
@@ -1086,6 +1107,8 @@
 "screen_notification_settings_mode_mentions" = "Mainimiste alusel";
 "screen_notification_settings_notification_section_title" = "Teavita mind";
 "screen_notification_settings_room_mention_label" = "@jututoa mainimised";
+"screen_notification_settings_show_all_activity_subtitle" = "Dots or number of unread messages";
+"screen_notification_settings_show_all_activity_title" = "Show all activity in the room list";
 "screen_notification_settings_sound_custom_fallback" = "Kohandatud";
 "screen_notification_settings_sound_custom_sound_button_title" = "Sinu valitud helin...";
 "screen_notification_settings_sound_delete_sound_error_title" = "Viga faili kustutamisel";
@@ -1146,6 +1169,14 @@
 "screen_polls_history_filter_ongoing" = "Käimasolev küsitlus";
 "screen_polls_history_filter_past" = "Varasem küsitlus";
 "screen_polls_history_title" = "Küsitlused";
+"screen_ptt_settings_battery_optimization" = "Ignore battery optimisation";
+"screen_ptt_settings_battery_optimization_description" = "Stay active in background";
+"screen_ptt_settings_covert_mode" = "Covert mode";
+"screen_ptt_settings_covert_mode_description" = "Mute all channels";
+"screen_ptt_settings_lock_screen" = "Show on lock screen";
+"screen_ptt_settings_lock_screen_description" = "Access from the lock screen";
+"screen_ptt_settings_system_overlay" = "Enable system overlay";
+"screen_ptt_settings_system_overlay_description" = "Access a floating action button";
 "screen_push_history_title" = "Tõuketeadete ajalugu";
 "screen_qr_code_login_connecting_subtitle" = "Loome turvalist ühendust";
 "screen_qr_code_login_connection_note_secure_state_description" = "Turvalise ühenduse loomine uue seadmega ei õnnestunud. Sinu olemasolevad seadmed on jätkuvalt turvatud ja sa ei pea nende pärast muretsema.";
@@ -1290,11 +1321,14 @@
 "screen_room_change_role_section_users" = "Liikmed";
 "screen_room_change_role_unsaved_changes_description" = "Sul on salvestamata muudatusi";
 "screen_room_change_role_unsaved_changes_title" = "Kas salvestame muudatused?";
-"screen_room_confirm_removal_message" = "Are you sure you wish to remove this message?";
 "screen_room_confirm_removal_reason_label" = "Reason (optional)";
-"screen_room_confirm_removal_reason_placeholder" = "Enter…";
-"screen_room_confirm_removal_title" = "Confirm removal";
+"screen_room_confirm_removal_reason_placeholder" = "Enter reason…";
+"screen_room_confirm_removal_reason_supporting_text" = "(Optional)";
+"screen_room_confirm_removal_title" = "Remove message?";
 "screen_room_details_add_topic_title" = "Lisa teema";
+"screen_room_details_audio_push_to_talk" = "Push to talk";
+"screen_room_details_audio_title" = "Room Audio";
+"screen_room_details_audio_video_calls" = "Video calls";
 "screen_room_details_badge_encrypted" = "Krüptitud jututuba";
 "screen_room_details_badge_not_encrypted" = "Krüptimata jututuba";
 "screen_room_details_badge_public" = "Avalik jututuba";
@@ -1320,6 +1354,9 @@
 "screen_room_details_profile_row_title" = "Profiil";
 "screen_room_details_requests_to_join_title" = "Liitumispalved";
 "screen_room_details_roles_and_permissions" = "Rollid ja õigused";
+"screen_room_details_room_audio_ptt" = "Push to talk";
+"screen_room_details_room_audio_title" = "Room Audio";
+"screen_room_details_room_audio_video_calls" = "Video calls";
 "screen_room_details_room_name_label" = "Nimi";
 "screen_room_details_security_and_privacy_title" = "Turvalisus ja privaatsus";
 "screen_room_details_security_title" = "Turvalisus";
@@ -1406,6 +1443,7 @@
 "screen_room_roles_and_permissions_room_details" = "Jututoa üksikasjad";
 "screen_room_roles_and_permissions_space_details" = "Kogukonna üksikasjad";
 "screen_room_roles_and_permissions_title" = "Rollid ja õigused";
+"screen_room_select_error_cannot_load_rooms" = "The room list associated with this account cannot be loaded.";
 "screen_room_single_knock_request_accept_button_title" = "Nõustu";
 "screen_room_single_knock_request_title" = "%1$@ soovib selle jututoaga liituda";
 "screen_room_single_knock_request_view_button_title" = "Vaata";
@@ -1536,6 +1574,7 @@
 "screen_session_verification_use_another_device_title" = "Ava rakendus teises verifitseeritud seadmes";
 "screen_session_verification_user_initiator_subtitle" = "Lisaturvalisuse nimel verifitseeri seee kasutaja, võrreldes oma seadmetes olevaid emojisid. Tee seda, kasutades usaldusväärset suhtlusviisi.";
 "screen_session_verification_user_initiator_title" = "Kas verifitseerime selle kasutaja?";
+"screen_session_verification_user_requesting_verification" = "User requesting verification:";
 "screen_session_verification_user_responder_subtitle" = "Lisaturvalisuse nimel soovib teine kasutaja sinu digitaalse identiteeti verifitseerida. Järgmiseks näed sa emojisid, mida peate omavahel võrdlema.";
 "screen_session_verification_waiting_another_device_subtitle" = "Sa peaksid teises seadmes nägema hüpikakent. Palun alusta sealt verifitseerimist.";
 "screen_session_verification_waiting_another_device_title" = "Alusta verifitseerimist teises seadmes";
@@ -1544,6 +1583,7 @@
 "screen_session_verification_waiting_subtitle" = "Kui oled nõustunud, siis saad sa verifitseerimist jätkata.";
 "screen_session_verification_waiting_to_accept_subtitle" = "Jätkamaks nõustu verifitseerimisprotsessi alustamisega oma teises sessioonis.";
 "screen_session_verification_waiting_to_accept_title" = "Ootame nõustumist verifitseerimispäringuga";
+"screen_settings_add_account" = "Add account";
 "screen_settings_user_status_away" = "Eemal";
 "screen_settings_user_status_be_right_back" = "Tulen kohe tagasi";
 "screen_settings_user_status_custom" = "Kohandatud…";
@@ -1566,6 +1606,7 @@
 "screen_signed_out_reason_2" = "Sa oled kustutanud selle sessiooni ühest teisest oma sessioonist";
 "screen_signed_out_reason_3" = "Sinu koduserveri haldaja on sinu ligipääsu keelanud";
 "screen_signed_out_subtitle" = "Sa oled välja logitud ühel alltoodud põhjusel. Teenuse %@ kasutamiseks palun logi uuesti sisse.";
+"screen_signed_out_subtitle_v2" = "This device was removed for one of the reasons listed below. Please sign in again to connect this device to your account.";
 "screen_signed_out_title" = "Sa oled välja loginud";
 "screen_signout_confirmation_dialog_content" = "Kas sa oled kindel, et soovid selle seadme eemaldada?";
 "screen_signout_confirmation_dialog_submit" = "Eemalda see seade";

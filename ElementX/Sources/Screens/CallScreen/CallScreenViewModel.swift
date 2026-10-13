@@ -17,7 +17,7 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
     private let elementCallService: ElementCallServiceProtocol
     private let configuration: ElementCallConfiguration
     private let isPictureInPictureAllowed: Bool
-    private let appSettings: AppSettings
+    private let userSettings: UserSettings
     private let analyticsService: AnalyticsServiceProtocol
     
     private let widgetDriver: ElementCallWidgetDriverProtocol
@@ -39,11 +39,11 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
     init(elementCallService: ElementCallServiceProtocol,
          configuration: ElementCallConfiguration,
          allowPictureInPicture: Bool,
-         appSettings: AppSettings,
+         userSettings: UserSettings,
          analyticsService: AnalyticsServiceProtocol) {
         self.elementCallService = elementCallService
         self.configuration = configuration
-        self.appSettings = appSettings
+        self.userSettings = userSettings
         self.analyticsService = analyticsService
         isPictureInPictureAllowed = allowPictureInPicture
         
@@ -137,7 +137,7 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
             await hangup()
         }
         
-        elementCallService.tearDownCallSession()
+        elementCallService.tearDownCallSession(roomID: configuration.callRoomID)
         UIDevice.current.isProximityMonitoringEnabled = false
     }
     
@@ -165,13 +165,13 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
             
             // We only set the analytics configuration if analytics are enabled
             let analyticsConfiguration: ElementCallAnalyticsConfiguration? = if analyticsService.isEnabled {
-                .init(posthogAPIHost: appSettings.elementCallPosthogAPIHost,
-                      posthogAPIKey: appSettings.elementCallPosthogAPIKey,
-                      sentryDSN: appSettings.elementCallPosthogSentryDSN)
+                .init(posthogAPIHost: userSettings.app.elementCallPosthogAPIHost,
+                      posthogAPIKey: userSettings.app.elementCallPosthogAPIKey,
+                      sentryDSN: userSettings.app.elementCallPosthogSentryDSN)
             } else {
                 nil
             }
-            let rageshakeURL: String? = if case let .url(baseURL) = appSettings.bugReportRageshakeURL.publisher.value {
+            let rageshakeURL: String? = if case let .url(baseURL) = userSettings.app.bugReportRageshakeURL.publisher.value {
                 baseURL.absoluteString
             } else {
                 nil
@@ -196,7 +196,8 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
             }
             
             await elementCallService.setupCallSession(roomID: configuration.roomProxy.id,
-                                                      roomDisplayName: configuration.roomProxy.infoPublisher.value.displayName ?? configuration.roomProxy.id)
+                                                      roomDisplayName: configuration.roomProxy.infoPublisher.value.displayNameOrID,
+                                                      isVideo: !configuration.voiceOnly)
         }
         
         timeoutTask = Task { [weak self] in
