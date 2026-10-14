@@ -100,8 +100,8 @@ targets:
           location
         ]
         BGTaskSchedulerPermittedIdentifiers: [
-          io.element.elementx.background.refresh,
-          io.element.elementx.background.search-backfill
+          "$(BASE_BUNDLE_IDENTIFIER).background.refresh",
+          "$(BASE_BUNDLE_IDENTIFIER).background.search-backfill"
         ]
         UTExportedTypeDeclarations:
         - UTTypeConformsTo: [public.text]
@@ -131,11 +131,9 @@ targets:
         com.apple.security.app-sandbox: true
         com.apple.security.application-groups:
         - $(APP_GROUP_IDENTIFIER)
-        - $(CLASSIC_APP_GROUP_IDENTIFIER)
         com.apple.security.network.client: true
         keychain-access-groups:
         - $(KEYCHAIN_ACCESS_GROUP_IDENTIFIER)
-        - $(CLASSIC_APP_KEYCHAIN_ACCESS_GROUP_IDENTIFIER)
 
     settings:
       base:

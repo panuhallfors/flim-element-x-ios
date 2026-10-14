@@ -25,3 +25,12 @@ strings:
         enumName: UntranslatedL10n
         lookupFunction: tr  # used for the loc to be computed variables
         publicAccess: false
+  - inputs: Resources/Localizations/en.lproj
+    filter: Flim*
+    outputs:
+      templatePath: Templates/Strings/structured-swift5-element.stencil
+      output: Strings+Flim.swift
+      params:
+        enumName: FlimL10n
+        lookupFunction: tr  # used for the loc to be computed variables
+        publicAccess: false

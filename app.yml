@@ -1,10 +1,12 @@
 settings:
-  APP_DISPLAY_NAME: Element X
-  PRODUCTION_APP_NAME: Element
-  APP_GROUP_IDENTIFIER: group.io.element
-  BASE_BUNDLE_IDENTIFIER: io.element.elementx
+  APP_DISPLAY_NAME: Flim
+  PRODUCTION_APP_NAME: Flim
+  # Interim (000a): me.flim.dev until final Apple team owns shipping me.flim / group.me.flim
+  APP_GROUP_IDENTIFIER: group.me.flim.dev
+  BASE_BUNDLE_IDENTIFIER: me.flim.dev
   ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: "colors/accent-color"
-  DEVELOPMENT_TEAM: 7J4U792NQT
+  # Temporary team for current dev stage; replace when the final Apple account owns shipping ids.
+  DEVELOPMENT_TEAM: PASU5WUBKW
   IS_NIGHTLY_BUILD: false
 
   # Optional configuration to load accounts from Element Classic.

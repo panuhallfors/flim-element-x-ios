@@ -1,0 +1,4 @@
+/* Flim catalog — fork-only copy (decision 002). Do not put these in Localizable / Untranslated. */
+"screen_notification_settings_sound_element_default" = "Flim Default";
+"screen_notification_settings_sound_element_fade" = "Flim Fade";
+"screen_room_timeline_legacy_call" = "Unsupported call. Ask if the caller can use the new Flim app.";

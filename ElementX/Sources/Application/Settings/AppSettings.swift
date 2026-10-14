@@ -130,9 +130,10 @@ final nonisolated class AppSettings: @unchecked Sendable {
     private(set) var hideBrandChrome = false
     
     /// The task identifier used for background app refresh. Also used in main target's the Info.plist
-    let backgroundAppRefreshTaskIdentifier = "io.element.elementx.background.refresh"
+    /// Derived from the base bundle id (decision 000a) so interim/shipping cutover stays a single app.yml change.
+    let backgroundAppRefreshTaskIdentifier = "\(InfoPlistReader.main.baseBundleIdentifier).background.refresh"
     /// The task identifier used for the search index backfill. Also used in main target's the Info.plist
-    let searchBackfillTaskIdentifier = "io.element.elementx.background.search-backfill"
+    let searchBackfillTaskIdentifier = "\(InfoPlistReader.main.baseBundleIdentifier).background.search-backfill"
     
     /// A URL where users can go read more about the app.
     private(set) var websiteURL: URL = "https://element.io"
