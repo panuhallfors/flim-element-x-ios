@@ -15,6 +15,7 @@ import Sentry
 import SwiftUI
 import Version
 
+// swiftlint:disable:next type_body_length
 class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDelegate, NotificationManagerDelegate, SecureWindowManagerDelegate {
     private let stateMachine: AppCoordinatorStateMachine
     private let navigationRootCoordinator: NavigationRootCoordinator
@@ -37,6 +38,10 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
     private var backgroundRefreshSyncObserver: AnyCancellable?
     
     private var userSessionMigrationsOldVersion: Version?
+    /// The accounts migrated since launch, so restoring one again (e.g. after clearing the cache) never migrates it twice.
+    private var migratedUserIDs: Set<String> = []
+    /// Restores the signed in accounts. Cancelled when signing out or clearing the cache.
+    private var restorationTask: Task<Void, Never>?
     private var userSession: UserSessionProtocol? {
         userSessionManager.activeSession
     }
@@ -48,7 +53,6 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
     private var userSessionFlowCoordinator: UserSessionFlowCoordinator?
     private var softLogoutCoordinator: SoftLogoutScreenCoordinator?
     private var appDelegateObserver: AnyCancellable?
-    private var userSessionObserver: AnyCancellable?
     /// Becomes `true` once the app is no longer waiting on a session restore, whatever the outcome.
     private let isSessionRestoredSubject = CurrentValueSubject<Bool, Never>(false)
     private var clientProxyObserver: AnyCancellable?
@@ -161,6 +165,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
         setupStateMachine()
         
         observeApplicationState()
+        observeUserSessionChanges()
         observeAppLockChanges()
         
         registerBackgroundAppRefresh()
@@ -369,6 +374,8 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
     // MARK: - AuthenticationFlowCoordinatorDelegate
     
     func authenticationFlowCoordinator(didLoginWithSession userSession: UserSessionProtocol) {
+        // A new login has nothing to migrate.
+        migratedUserIDs.insert(userSession.clientProxy.userID)
         userSessionManager.add(userSession)
         configureActiveSession()
         authenticationFlowCoordinator = nil
@@ -467,12 +474,33 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             MXLog.info("Migrating to version 25.07.4, log files have been moved.")
         }
         
+        if oldVersion < Version(26, 10, 2) {
+            MXLog.info("Migrating to version 26.10.2, moving notification sounds.")
+            let soundsDirectory = URL.libraryDirectory.appending(component: "Sounds", directoryHint: .isDirectory)
+            
+            // Sounds are now referenced directly, the duplicate file can go.
+            try? FileManager.default.removeItem(at: soundsDirectory.appending(component: "currentAlert.caf"))
+            
+            let oldCustomTonesLocation = soundsDirectory.appending(component: "AvailableSounds", directoryHint: .isDirectory)
+            if FileManager.default.fileExists(atPath: oldCustomTonesLocation.path(percentEncoded: false)) {
+                do {
+                    try FileManager.default.moveItem(at: oldCustomTonesLocation, to: URL.customTonesDirectory)
+                } catch {
+                    MXLog.error("Failed moving custom notification sounds: \(error)")
+                }
+            }
+        }
+        
         // Store the old version to run additional migrations on the user session once it has been set up.
         userSessionMigrationsOldVersion = oldVersion
     }
     
+    // swiftlint:disable:next cyclomatic_complexity
     private func performUserSessionMigrations(_ userSession: UserSessionProtocol) async {
-        guard let oldVersion = userSessionMigrationsOldVersion else { return }
+        guard let oldVersion = userSessionMigrationsOldVersion,
+              migratedUserIDs.insert(userSession.clientProxy.userID).inserted else {
+            return
+        }
         
         MXLog.info("Migrating user session from \(oldVersion)")
         
@@ -515,7 +543,22 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             userSession.userSettings.account.migrateAppSettingsValue(\.searchBreadcrumbsKey)
         }
         
-        userSessionMigrationsOldVersion = nil
+        if oldVersion < Version(26, 10, 2) {
+            MXLog.info("Migrating to version 26.10.2, moving visible account settings.")
+            userSession.userSettings.account.migrateAppSettingsValue(\.showAllRoomListActivityKey)
+            userSession.userSettings.account.migrateAppSettingsValue(\.selectedNotificationToneKey)
+            userSession.userSettings.account.migrateAppSettingsValue(\.sharePresenceKey)
+            
+            // Make sure system notification sounds are available in the new directory.
+            if let selectedNotificationTone = userSession.userSettings.account.selectedNotificationTone {
+                do {
+                    MXLog.info("Copying the selected system notification sound.")
+                    try NotificationToneManager.copySystemToneIfNeeded(selectedNotificationTone)
+                } catch {
+                    MXLog.error("Failed migrating the selected notification sound: \(error)")
+                }
+            }
+        }
     }
     
     /// This could be removed once the adoption of 25.06.x is widespread.
@@ -626,8 +669,9 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
                 startAuthentication()
             case (.signedOut, .createdUserSession, .signedIn):
                 setupUserSession(isNewLogin: true)
+                restoreUserSessions()
             case (.initial, .startWithExistingSession, .restoringSession):
-                restoreUserSession()
+                restoreUserSessions()
             case (.restoringSession, .failedRestoringSession, .signedOut):
                 showLoginErrorToast()
                 presentSplashScreen()
@@ -635,6 +679,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
                 setupUserSession(isNewLogin: false)
             case (.softLogout, .createdUserSession, .signedIn):
                 setupUserSession(isNewLogin: false)
+                restoreUserSessions()
                 
             case (.signingOut, .signOut, .signingOut):
                 // We can ignore signOut when already in the process of signing out,
@@ -662,19 +707,35 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
         }
     }
     
-    private func restoreUserSession() {
-        Task {
-            switch await userSessionManager.restoreActiveSession() {
-            case .success(let userSession):
-                await self.performUserSessionMigrations(userSession)
-                userSessionManager.add(userSession)
-                configureActiveSession()
-                stateMachine.processEvent(.createdUserSession)
-            case .failure:
+    private func restoreUserSessions() {
+        let previousRestorationTask = restorationTask
+        restorationTask = Task {
+            // A cancelled restoration may still be building a client, which mustn't share a store with a new one.
+            await previousRestorationTask?.value
+            
+            await userSessionManager.restoreSessions { [weak self] userSession in
+                await self?.performUserSessionMigrations(userSession)
+            } didAdd: { [weak self] _ in
+                self?.showActiveSessionIfRestoring()
+            }
+            
+            guard !Task.isCancelled else { return }
+            // An account that was already live becomes the active one when those before it fail (e.g. after clearing the cache).
+            showActiveSessionIfRestoring()
+            
+            if stateMachine.state == .restoringSession {
                 MXLog.error("Failed to restore an existing session.")
                 stateMachine.processEvent(.failedRestoringSession)
             }
         }
+    }
+    
+    /// Shows the active session as soon as it's live, while the app is waiting for one.
+    private func showActiveSessionIfRestoring() {
+        guard stateMachine.state == .restoringSession, userSession != nil else { return }
+        
+        configureActiveSession()
+        stateMachine.processEvent(.createdUserSession)
     }
     
     private func startAuthentication() {
@@ -757,6 +818,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
                     
                     switch action {
                     case .signedIn(let session):
+                        self.migratedUserIDs.insert(session.clientProxy.userID)
                         self.userSessionManager.add(session)
                         self.configureActiveSession()
                         self.softLogoutCoordinator = nil
@@ -833,6 +895,8 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             fatalError("User session not setup")
         }
         
+        // TODO: With other accounts signed in, switch to the most recently used one instead (element-hq/element-meta#3325).
+        restorationTask?.cancel()
         windowManager.closeAllSecondaryWindows()
         
         showLoadingIndicator()
@@ -880,8 +944,6 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
     private func tearDownUserSession() {
         userIndicatorController.retractAllIndicators()
         
-        userSessionObserver?.cancel()
-        
         userSessionFlowCoordinator = nil
         
         notificationManager.setUserSession(nil)
@@ -912,19 +974,14 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             fatalError("User session not setup")
         }
         
-        configureServices(for: userSession)
+        // TODO: Calls only follow the active account, ElementCallService must change to hold every account's session.
+        elementCallService.setUserSession(userSession)
+        // TODO: Notifications only follow the active account, the NotificationManager must change to handle every account.
+        configureNotificationManager(for: userSession)
         Task {
             await resumeClientServices()
             await appHooks.configure(with: userSession)
         }
-    }
-    
-    /// Wires the services that work for every signed in account, not only the active one. They only hold a single session for now.
-    private func configureServices(for userSession: UserSessionProtocol) {
-        userSessionObserver?.cancel()
-        elementCallService.setUserSession(userSession)
-        configureNotificationManager(for: userSession)
-        observeUserSessionChanges(userSession)
     }
     
     private func configureNotificationManager(for userSession: UserSessionProtocol) {
@@ -942,16 +999,22 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             }
     }
     
-    private func observeUserSessionChanges(_ userSession: UserSessionProtocol) {
-        userSessionObserver = userSession.callbacks
+    private func observeUserSessionChanges() {
+        userSessionManager.callbacksPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] callback in
                 guard let self else { return }
                 switch callback {
-                case .didReceiveAuthError(let isSoftLogout):
+                case .didReceiveAuthError(let userID, let isSoftLogout):
+                    // Only the active account can be signed out for now.
+                    guard userID == userSessionManager.activeSession?.clientProxy.userID else {
+                        MXLog.error("Ignoring an auth error for \(userID), it isn't the active account.")
+                        return
+                    }
                     stateMachine.processEvent(.signOut(isSoft: isSoftLogout, disableAppLock: false))
                 }
             }
+            .store(in: &cancellables)
     }
     
     private func observeAppLockChanges() {
@@ -974,6 +1037,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             fatalError("User session not setup")
         }
         
+        restorationTask?.cancel()
         showLoadingIndicator()
         
         navigationRootCoordinator.setRootCoordinator(PlaceholderScreenCoordinator(hideBrandChrome: appSettings.hideBrandChrome))
@@ -983,7 +1047,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
         
         // Allow for everything to deallocate properly
         Task {
-            await userSession.clientProxy.clearCaches()
+            await userSessionManager.clearCaches(userID: userSession.clientProxy.userID)
             stateMachine.processEvent(.startWithExistingSession)
             hideLoadingIndicator()
         }
@@ -1128,7 +1192,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
             return
         }
         
-        await userSession?.clientProxy.pauseServices()
+        await userSessionManager.pauseServices()
         clientProxyObserver = nil
     }
     
@@ -1137,7 +1201,7 @@ class AppCoordinator: AppCoordinatorProtocol, AuthenticationFlowCoordinatorDeleg
         
         analyticsService.signpost.startTransaction(.upToDateRoomList)
         
-        await userSession.clientProxy.resumeServices()
+        await userSessionManager.resumeServices()
         
         guard clientProxyObserver == nil else {
             return
@@ -1329,7 +1393,7 @@ private extension AppCoordinator {
         
         // Configure the background-refresh sync to carry set_presence=offline so it doesn't mark the
         // user online or idle. Note: If already online/idle then setting offline shouldn't override that.
-        _ = await userSession.clientProxy.configurePresence(.offline, sendImmediately: false)
+        await userSessionManager.configurePresence(.offline, sendImmediately: false)
         
         await resumeClientServices()
         
@@ -1386,7 +1450,7 @@ private extension AppCoordinator {
     }
     
     func scheduleSearchBackfill() {
-        guard let userSession, userSession.userSettings.app.globalSearchEnabled, #available(iOS 26.0, *) else {
+        guard let userSession, userSession.userSettings.app.globalSearchEnabled else {
             return
         }
         
@@ -1407,20 +1471,15 @@ private extension AppCoordinator {
         
         await waitForSessionRestore()
         
-        guard let clientProxy = userSession?.clientProxy else {
-            task.setTaskCompleted(success: false)
-            return
-        }
-        
         task.expirationHandler = { @Sendable [weak self] in
             MXLog.info("Search backfill task is about to expire.")
-            Task { @MainActor in self?.userSession?.clientProxy.stopSearchBackfill() }
+            Task { @MainActor in self?.userSessionManager.stopSearchBackfill() }
         }
         
-        clientProxy.startSearchBackfill(strategy: .background)
+        userSessionManager.startSearchBackfill(strategy: .background)
         
-        // TaskHandle can't be awaited, so poll until the sweep finishes or is stopped on expiry.
-        while clientProxy.isSearchBackfillRunning {
+        // TaskHandle can't be awaited, so poll until every sweep finishes or is stopped on expiry.
+        while userSessionManager.isSearchBackfillRunning {
             try? await Task.sleep(for: .seconds(1))
         }
         
