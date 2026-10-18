@@ -1,6 +1,5 @@
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
-// Flim catalog (decision 002). Regenerate via: swiftgen config run --config Tools/SwiftGen/swiftgen-config.yml
 
 import Foundation
 
@@ -40,11 +39,11 @@ nonisolated extension FlimL10n {
     guard let bundle = Bundle.lprojBundle(for: language) else { return nil }
     let format = NSLocalizedString(key, tableName: table, bundle: bundle, comment: "")
     let translation = String(format: format, locale: Locale(identifier: language), arguments: args)
-    guard translation != key,
+    guard translation != key, 
           translation != "\(key) \(key)" // Handle double pseudo for tests
-    else {
-      return nil
-    }
+      else { 
+        return nil 
+      }
     return translation
   }
 }
