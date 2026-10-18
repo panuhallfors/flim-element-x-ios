@@ -30,4 +30,28 @@ final class FlimAppIdentityTests {
         #expect(settings.backgroundAppRefreshTaskIdentifier == "\(base).background.refresh")
         #expect(settings.searchBackfillTaskIdentifier == "\(base).background.search-backfill")
     }
+    
+    @Test
+    func embeddedExtensionsShareFlimIdentityFamily() throws {
+        let app = InfoPlistReader.app
+        let base = app.baseBundleIdentifier
+        let expectedBundleIDs = ["\(base).nse", "\(base).shareextension"]
+        
+        let pluginsURL = try #require(Bundle.app.builtInPlugInsURL)
+        let pluginBundles = try FileManager.default.contentsOfDirectory(at: pluginsURL, includingPropertiesForKeys: nil)
+            .filter { $0.pathExtension == "appex" }
+            .compactMap { Bundle(url: $0) }
+        
+        for expectedID in expectedBundleIDs {
+            #expect(!expectedID.hasPrefix("io.element"))
+            let bundle = try #require(pluginBundles.first { $0.bundleIdentifier == expectedID },
+                                      "Missing embedded extension \(expectedID)")
+            let reader = InfoPlistReader(bundle: bundle)
+            #expect(reader.bundleIdentifier == expectedID)
+            #expect(reader.baseBundleIdentifier == base)
+            #expect(reader.appGroupIdentifier == app.appGroupIdentifier)
+            #expect(reader.bundleDisplayName == "Flim")
+            #expect(reader.productionAppName == "Flim")
+        }
+    }
 }
