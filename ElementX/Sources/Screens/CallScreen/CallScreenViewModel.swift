@@ -18,7 +18,6 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
     private let configuration: ElementCallConfiguration
     private let isPictureInPictureAllowed: Bool
     private let userSettings: UserSettings
-    private let analyticsService: AnalyticsServiceProtocol
     
     private let widgetDriver: ElementCallWidgetDriverProtocol
     
@@ -40,11 +39,10 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
          configuration: ElementCallConfiguration,
          allowPictureInPicture: Bool,
          userSettings: UserSettings,
-         analyticsService: AnalyticsServiceProtocol) {
+         analyticsService _: AnalyticsServiceProtocol) {
         self.elementCallService = elementCallService
         self.configuration = configuration
         self.userSettings = userSettings
-        self.analyticsService = analyticsService
         isPictureInPictureAllowed = allowPictureInPicture
         
         guard let deviceID = configuration.clientProxy.deviceID else { fatalError("Missing device ID for the call.") }
@@ -163,14 +161,7 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
                 configuration.elementCallBaseURL
             }
             
-            // We only set the analytics configuration if analytics are enabled
-            let analyticsConfiguration: ElementCallAnalyticsConfiguration? = if analyticsService.isEnabled {
-                .init(posthogAPIHost: userSettings.app.elementCallPosthogAPIHost,
-                      posthogAPIKey: userSettings.app.elementCallPosthogAPIKey,
-                      sentryDSN: userSettings.app.elementCallPosthogSentryDSN)
-            } else {
-                nil
-            }
+            // decision 011 — never pass Element Call analytics (Element's PostHog/Sentry)
             let rageshakeURL: String? = if case let .url(baseURL) = userSettings.app.bugReportRageshakeURL.publisher.value {
                 baseURL.absoluteString
             } else {
@@ -182,7 +173,7 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
                                             colorScheme: configuration.colorScheme,
                                             voiceOnly: configuration.voiceOnly,
                                             rageshakeURL: rageshakeURL,
-                                            analyticsConfiguration: analyticsConfiguration) {
+                                            analyticsConfiguration: nil) {
             case .success(let url):
                 state.url = url
             case .failure(let error):
